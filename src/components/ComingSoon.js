@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/images/logo.svg";
 
-function App() {
+export default function ComingSoon() {
   return (
     <section className="min-vh-100 py-5 o-hidden">
       <div className="container position-relative">
@@ -23,5 +23,3 @@ function App() {
     </section>
   );
 }
-
-export default App;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
+import ComingSoon from './components/ComingSoon';
 import * as serviceWorker from './services/serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -9,7 +9,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ComingSoon />
   </React.StrictMode>,
   document.getElementById('root')
 );
