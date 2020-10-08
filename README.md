@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <img src="https://raw.githubusercontent.com/umic-devs/umic-wiki/master/docs/extra/umic-devs.png" alt="Logo" style="height: 96px">
+</p>
 
-## Available Scripts
+<h1 align="center">UMIC WebApp</h1>
 
-In the project directory, you can run:
+<p align="center">
+    <a href="https://codeclimate.com/github/umic-devs/umic-web/maintainability" alt="maintainability"><img src="https://api.codeclimate.com/v1/badges/3d98356b849882583815/maintainability" /></a>
+    <a href="https://travis-ci.com/github/umic-devs/umic-web" alt="build status" >
+        <img src="https://travis-ci.com/umic-devs/umic-web.svg?branch=master" />
+    </a>
+    <a href="https://www.gnu.org/licenses/gpl-3.0" alt="licence" >
+        <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
+    </a>
+</p>
 
-### `yarn start`
+<p align="center">
+    <a href="https://umic.com.br/"><strong>Acesse o site da UMIC</strong></a>
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+    <a href="https://github.com/umic-devs/umic-wiki"><strong>Acesse a documentação</strong></a>
+</p>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Sobre o projeto
 
-### `yarn test`
+A **UMIC** é a União das Mocidades da Igreja de Cristo, e busca a unidade entre o passado, presente e futuro da Igreja de Cristo, com ações que visam alimentar o desejo de servir à Deus como igreja. Dentre essas ações temos o COMIC, congresso que acontece durante o feriado do carnaval, e a Blitz, que é um projeto que visa o estímulo às missões de evangelismo através de viagens missionárias com jovens.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologias utilizadas
 
-### `yarn build`
+**Desenvolvido com** [React](https://reactjs.org/)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalação
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Esse projeto requer a instalação prévia do npm através do [node.js](https://nodejs.org/en/download/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para rodar o projeto, faça o clone desse repositório, entre na pasta clonada e execute o comando de instalação das dependências do projeto:
+```bash
+git clone https://github.com/umic-devs/umic-web.git
+cd umic-web
+npm install
+```
 
-### `yarn eject`
+## Execução
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Com o projeto instalado, rode o comando:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- ## Contribuição
 
-## Learn More
+Siga o [guia de contribuição](CONTRIBUTING.md) e o [código de conduta](CODE_OF_CONDUCT.md) para entender os passos e regras para adicionar sua contribuição ao projeto. -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Licença
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+GPLv3 © UMIC Brasil. Acesse a [licença](LICENSE) para mais detalhes.
