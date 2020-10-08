@@ -51,9 +51,9 @@ npm start
 
 A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
 
-<!-- ## Contribuição
+## Contribuição
 
-Siga o [guia de contribuição](CONTRIBUTING.md) e o [código de conduta](CODE_OF_CONDUCT.md) para entender os passos e regras para adicionar sua contribuição ao projeto. -->
+Siga o [guia de contribuição](CONTRIBUTING.md) e o [código de conduta](CODE_OF_CONDUCT.md) para entender os passos e regras para adicionar sua contribuição ao projeto.
 
 ## Licença
 
