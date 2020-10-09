@@ -5,10 +5,13 @@
 <h1 align="center">UMIC WebApp</h1>
 
 <p align="center">
-    <a href="https://codeclimate.com/github/umic-devs/umic-web/maintainability" alt="maintainability"><img src="https://api.codeclimate.com/v1/badges/3d98356b849882583815/maintainability" /></a>
+    <a href="https://app.netlify.com/sites/umic/deploys" alt="netlify status" >
+        <img src="https://api.netlify.com/api/v1/badges/2670b9bc-dcc5-4317-8abc-e90718476e6f/deploy-status" />
+    </a>
     <a href="https://travis-ci.com/github/umic-devs/umic-web" alt="build status" >
         <img src="https://travis-ci.com/umic-devs/umic-web.svg?branch=master" />
     </a>
+    <a href="https://codeclimate.com/github/umic-devs/umic-web/maintainability" alt="maintainability"><img src="https://api.codeclimate.com/v1/badges/3d98356b849882583815/maintainability" /></a>
     <a href="https://www.gnu.org/licenses/gpl-3.0" alt="licence" >
         <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
     </a>
@@ -35,6 +38,7 @@ A **UMIC** é a União das Mocidades da Igreja de Cristo, e busca a unidade entr
 Esse projeto requer a instalação prévia do npm através do [node.js](https://nodejs.org/en/download/).
 
 Para rodar o projeto, faça o clone desse repositório, entre na pasta clonada e execute o comando de instalação das dependências do projeto:
+
 ```bash
 git clone https://github.com/umic-devs/umic-web.git
 cd umic-web
