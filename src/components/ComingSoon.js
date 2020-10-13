@@ -1,21 +1,26 @@
 import React from "react";
-import logo from "../assets/images/umic.svg";
+
+import image from "../assets/images/bg-comic.jpg";
+import logo from "../assets/images/umic-logo-white.svg";
 
 export default function ComingSoon() {
   return (
-    <section className="min-vh-100 py-5 o-hidden">
-      <div className="container position-relative">
-        <div className="row justify-content-center mb-md-5">
-          <div className="col-auto">
-            <img src={logo} alt="logo" style={{ height: 120, width: "auto" }} />
-          </div>
-        </div>
-        <div className="row justify-content-center py-6">
-          <div className="col text-center">
-            <h1>Novidades em Breve!</h1>
+    <section
+      className="min-vh-100 p-0 o-hidden text-white"
+      style={{ backgroundColor: "#1E46AD" }}
+    >
+      <img
+        className="bg-image blend-mode-multiply"
+        src={image}
+        alt="foto comic 2020"
+      ></img>
+      <div className="container layer-2">
+        <div className="row min-vh-80 align-items-center">
+          <div className="col-12 text-center">
+            <img className="mb-4" src={logo} alt="logo" style={{ height: 76, width: "auto" }} />
+            <h1>Tem Novidade Vindo Aí!</h1>
             <div className="lead">
-              Haaaja coração! Estamos preparando algo muito especial para os
-              jovens da Igreja de Cristo. Fique ligado!
+              Seguuura, estamos preparando algo pra vocês. Fique ligado!
             </div>
           </div>
         </div>

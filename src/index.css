@@ -1,6 +1,58 @@
 body {
   margin: 0;
-  font-family: Inter, sans-serif;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: left;
+  background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Images */
+
+.bg-image {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.bg-image:not([class*=absolute]) {
+  position: absolute;
+}
+
+img.bg-image {
+  object-fit: cover;
+}
+
+/* Images */
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.blend-mode-multiply {
+  mix-blend-mode: multiply;
+}
+
+/* Spacing */
+
+.pt-6, .py-6 {
+  padding-top: 4.5rem!important;
+}
+
+.pb-6, .py-6 {
+  padding-bottom: 4.5rem!important;
+}
+
+/* Utilities */
+
+.min-vh-80 {
+  min-height: 80vh;
 }
