@@ -29,6 +29,14 @@ img.bg-image {
   object-fit: cover;
 }
 
+/* Card */
+
+@media (max-width: 767.98px) {
+  .card {
+    margin-bottom: .75rem;
+  }
+}
+
 /* Images */
 
 img {
