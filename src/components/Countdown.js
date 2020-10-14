@@ -33,25 +33,41 @@ export default function Countdown({ date, className }) {
         <div className="row text-center text-body">
           <div className="col-md">
             <div className="card card-body">
-              <span className="h1 text-primary mb-2">{timeLeft.days}</span>
+              <span className="h1 text-primary mb-2">
+                {timeLeft.days.toLocaleString(undefined, {
+                  minimumIntegerDigits: 2,
+                })}
+              </span>
               <span className="h6 mb-0">Dias</span>
             </div>
           </div>
           <div className="col-md">
             <div className="card card-body">
-              <span className="h1 text-primary mb-2">{timeLeft.hours}</span>
+              <span className="h1 text-primary mb-2">
+                {timeLeft.hours.toLocaleString(undefined, {
+                  minimumIntegerDigits: 2,
+                })}
+              </span>
               <span className="h6 mb-0">Horas</span>
             </div>
           </div>
           <div className="col-md">
             <div className="card card-body">
-              <span className="h1 text-primary mb-2">{timeLeft.minutes}</span>
+              <span className="h1 text-primary mb-2">
+                {timeLeft.minutes.toLocaleString(undefined, {
+                  minimumIntegerDigits: 2,
+                })}
+              </span>
               <span className="h6 mb-0">Minutos</span>
             </div>
           </div>
           <div className="col-md">
             <div className="card card-body">
-              <span className="h1 text-primary mb-2">{timeLeft.seconds}</span>
+              <span className="h1 text-primary mb-2">
+                {timeLeft.seconds.toLocaleString(undefined, {
+                  minimumIntegerDigits: 2,
+                })}
+              </span>
               <span className="h6 mb-0">Segundos</span>
             </div>
           </div>
