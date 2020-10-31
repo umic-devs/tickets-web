@@ -1,7 +1,3 @@
-<p align="center">
-    <img src="https://raw.githubusercontent.com/umic-devs/umic-wiki/master/docs/extra/umic-devs.png" alt="Logo" style="height: 96px">
-</p>
-
 <h1 align="center">UMIC WebApp</h1>
 
 <p align="center">
