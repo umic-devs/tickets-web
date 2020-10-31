@@ -27,10 +27,10 @@ export default function ComingSoon() {
             />
             <h1>Tem Novidade Vindo Aí!</h1>
             <div className="lead">
-              Seguuura, estamos preparando algo pra vocês. Fique ligado!
+              Seguuura, estamos preparando algo pra vocês. Fiquem ligados!
             </div>
             <div className="mt-4">
-              <Countdown date="2020-11-9 20:00" />
+              <Countdown date="2020-11-7 20:00" />
             </div>
           </div>
         </div>
