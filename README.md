@@ -27,7 +27,7 @@ A *UMIC* é a União das Mocidades da Igreja de Cristo, e busca a unidade entre 
 
 ## Tecnologias utilizadas
 
-*Desenvolvido com* [React](https://reactjs.org/)
+Desenvolvido com [React](https://reactjs.org/)
 
 ## Instalação
 
