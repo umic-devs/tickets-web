@@ -23,7 +23,7 @@
 
 ## Sobre o projeto
 
-A **UMIC** é a União das Mocidades da Igreja de Cristo, e busca a unidade entre o passado, presente e futuro da Igreja de Cristo, com ações que visam alimentar o desejo de servir à Deus como igreja. Dentre essas ações temos o COMIC, congresso que acontece durante o feriado do carnaval, e a Blitz, que é um projeto que visa o estímulo às missões de evangelismo através de viagens missionárias com jovens.
+A *UMIC* é a União das Mocidades da Igreja de Cristo, e busca a unidade entre o passado, presente e futuro da Igreja de Cristo, com ações que visam alimentar o desejo de servir à Deus como igreja. Dentre essas ações temos o COMIC, congresso que acontece durante o feriado do carnaval, e a Blitz, que é um projeto que visa o estímulo às missões de evangelismo através de viagens missionárias com jovens.
 
 ## Tecnologias utilizadas
 
