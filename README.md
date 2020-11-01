@@ -29,7 +29,7 @@ A *UMIC* é a União das Mocidades da Igreja de Cristo, e busca a unidade entre 
 
 **Desenvolvido** com [React](https://reactjs.org/)
 
-## Instalação
+## #Instalação
 
 Esse projeto requer a instalação prévia do npm através do [node.js](https://nodejs.org/en/download/).
 
