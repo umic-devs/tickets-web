@@ -15,7 +15,7 @@ export default function ComingSoon() {
         className="bg-image blend-mode-multiply"
         src={image}
         alt="foto comic 2020"
-      ></img>
+      />
       <div className="container layer-2">
         <div className="row min-vh-80 align-items-center">
           <div className="col-12 text-center">

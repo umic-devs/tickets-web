@@ -1,3 +1,5 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
 body {
   margin: 0;
   font-family: Inter, Arial, sans-serif;
@@ -65,46 +67,12 @@ img {
   padding-bottom: 4.5rem!important;
 }
 
-.row-sm-margin {
+.row {
   margin-right: -6px !important;
   margin-left: -6px !important;
 }
 
-.row-sm-margin>.col, .row-sm-margin>.col-auto,
-.row-sm-margin>.col-1, .row-sm-margin>.col-2,
-.row-sm-margin>.col-3, .row-sm-margin>.col-4,
-.row-sm-margin>.col-5, .row-sm-margin>.col-6,
-.row-sm-margin>.col-7, .row-sm-margin>.col-8,
-.row-sm-margin>.col-9, .row-sm-margin>.col-10,
-.row-sm-margin>.col-11, .row-sm-margin>.col-12,
-.row-sm-margin>.col-lg, .row-sm-margin>.col-lg-auto,
-.row-sm-margin>.col-lg-1, .row-sm-margin>.col-lg-2,
-.row-sm-margin>.col-lg-3, .row-sm-margin>.col-lg-4,
-.row-sm-margin>.col-lg-5, .row-sm-margin>.col-lg-6,
-.row-sm-margin>.col-lg-7, .row-sm-margin>.col-lg-8,
-.row-sm-margin>.col-lg-9, .row-sm-margin>.col-lg-10,
-.row-sm-margin>.col-lg-11, .row-sm-margin>.col-lg-12,
-.row-sm-margin>.col-md, .row-sm-margin>.col-md-1,
-.row-sm-margin>.col-md-10, .row-sm-margin>.col-md-11,
-.row-sm-margin>.col-md-12, .row-sm-margin>.col-md-2,
-.row-sm-margin>.col-md-3, .row-sm-margin>.col-md-4,
-.row-sm-margin>.col-md-5, .row-sm-margin>.col-md-6,
-.row-sm-margin>.col-md-7, .row-sm-margin>.col-md-8,
-.row-sm-margin>.col-md-9, .row-sm-margin>.col-md-auto,
-.row-sm-margin>.col-sm, .row-sm-margin>.col-sm-1,
-.row-sm-margin>.col-sm-10, .row-sm-margin>.col-sm-11,
-.row-sm-margin>.col-sm-12, .row-sm-margin>.col-sm-2,
-.row-sm-margin>.col-sm-3, .row-sm-margin>.col-sm-4,
-.row-sm-margin>.col-sm-5, .row-sm-margin>.col-sm-6,
-.row-sm-margin>.col-sm-7, .row-sm-margin>.col-sm-8,
-.row-sm-margin>.col-sm-9, .row-sm-margin>.col-sm-auto,
-.row-sm-margin>.col-xl, .row-sm-margin>.col-xl-1,
-.row-sm-margin>.col-xl-10, .row-sm-margin>.col-xl-11,
-.row-sm-margin>.col-xl-12, .row-sm-margin>.col-xl-2,
-.row-sm-margin>.col-xl-3, .row-sm-margin>.col-xl-4,
-.row-sm-margin>.col-xl-5, .row-sm-margin>.col-xl-6,
-.row-sm-margin>.col-xl-7, .row-sm-margin>.col-xl-8,
-.row-sm-margin>.col-xl-9, .row-sm-margin>.col-xl-auto {
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
   padding-right: 6px !important;
   padding-left: 6px !important;
 }
@@ -113,4 +81,14 @@ img {
 
 .min-vh-80 {
   min-height: 80vh;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+.fit-screen {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
