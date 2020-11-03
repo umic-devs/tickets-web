@@ -1,5 +1,9 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 @import 'assets/fonts/Inter/inter.css';
+:root {
+  --black-comic: #0C0C0C --white-comic: #FFFCEB --blue-comic: #1600FF --green-comic: #5FC815 --pink-comic: #5FC815 --red-comic: #F32828 --purple-comic: #A123E9 --yellow-comic: #FFD600
+}
+
 body {
   margin: 0;
   font-family: Inter, Arial, sans-serif;
