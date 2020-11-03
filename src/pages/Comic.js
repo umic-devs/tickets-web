@@ -1,9 +1,15 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 export default function Comic() {
   return (
-    <section className="min-vh-100 p-0">
-      <h1>Comic</h1>
-    </section>
+    <>
+      <Navbar activeTab="comic" />
+      <section className="min-vh-100">
+          <div className="container py-4">
+              <h1>COMIC 2021</h1>
+          </div>
+      </section>
+    </>
   );
 }

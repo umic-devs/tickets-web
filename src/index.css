@@ -1,6 +1,5 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 @import 'assets/fonts/Inter/inter.css';
-
 body {
   margin: 0;
   font-family: Inter, Arial, sans-serif;
@@ -92,4 +91,16 @@ img {
 .fit-screen {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Navbar */
+
+.navbar {
+  top: 0;
+  font-weight: 600;
+}
+
+.navbar-brand {
+  height: 64px;
+  max-width: 64px;
 }
