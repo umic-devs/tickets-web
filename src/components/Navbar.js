@@ -16,7 +16,10 @@ export default function Navbar({ activeTab }) {
   }
 
   return (
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav
+      class="navbar navbar-expand-sm navbar-dark"
+      style={{ backgroundColor: "#0c0c0c" }}
+    >
       <div className="container">
         <img src={logo} alt="umic logo" className="navbar-brand" />
         <button
