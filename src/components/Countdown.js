@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 export default function Countdown({ date, setIsTimeOver }) {
-
   let difference = 0;
 
   const calculateTimeLeft = () => {

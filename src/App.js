@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import ComingSoon from "./pages/ComingSoon";
 import Comic from "./pages/Comic";
+import Home from "./pages/Home";
 
 export default function App() {
   const [isTimeOver, setIsTimeOver] = useState();
@@ -23,7 +24,7 @@ export default function App() {
     <BrowserRouter>
       <Switch>
         {isTimeOver ? (
-          <Route path="/" component={Comic} />
+          <Route path="/" component={Home} />
         ) : (
           <Route
             path="/"
