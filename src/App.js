@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import ComingSoon from "./pages/ComingSoon";
 import Comic from "./pages/Comic";
 
 export default function App() {
+  const [isTimeOver, setIsTimeOver] = useState();
+
   useEffect(() => {
     function handleResize() {
       let vh = window.innerHeight * 0.01;
@@ -20,7 +22,17 @@ export default function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={ComingSoon} />
+        {isTimeOver ? (
+          <Route path="/" component={Comic} />
+        ) : (
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <ComingSoon {...props} setIsTimeOver={setIsTimeOver} />
+            )}
+          />
+        )}
         <Route path="/comic" component={Comic} />
         <Redirect to="/" />
       </Switch>

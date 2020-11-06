@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-export default function Countdown({ date, className }) {
+export default function Countdown({ date, setIsTimeOver }) {
+
   let difference = 0;
 
   const calculateTimeLeft = () => {
     difference = +new Date(date) - +new Date();
     let timeLeft = {};
+    let isTimeOver = true;
 
     if (difference > 0) {
       timeLeft = {
@@ -14,7 +16,10 @@ export default function Countdown({ date, className }) {
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       };
+      isTimeOver = false;
     }
+
+    setIsTimeOver(isTimeOver);
 
     return timeLeft;
   };

@@ -5,7 +5,8 @@ import logo from "../assets/images/umic-logo-white.svg";
 
 import Countdown from "../components/Countdown";
 
-export default function ComingSoon() {
+export default function ComingSoon({setIsTimeOver}) {
+
   return (
     <section
       className="min-vh-100 p-0 o-hidden text-white"
@@ -30,7 +31,7 @@ export default function ComingSoon() {
               Seguuura, estamos preparando algo pra vocês. Fiquem ligados!
             </div>
             <div className="mt-4">
-              <Countdown date="2020-11-7 20:00" />
+              <Countdown date="2020-11-7 20:00" setIsTimeOver={setIsTimeOver}/>
             </div>
           </div>
         </div>

@@ -114,6 +114,8 @@ img {
 }
 
 .navbar-brand {
-  height: 64px;
-  max-width: 64px;
+  height: 52px;
+  max-width: 52px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
