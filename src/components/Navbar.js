@@ -17,29 +17,29 @@ export default function Navbar({ activeTab }) {
 
   return (
     <nav
-      class="navbar navbar-expand-sm navbar-dark"
+      className="navbar navbar-expand-sm navbar-dark"
       style={{ backgroundColor: "#0c0c0c" }}
     >
       <div className="container">
         <img src={logo} alt="umic logo" className="navbar-brand" />
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           onClick={() => setCollapse(!collapse)}
         >
-          <span class="navbar-toggler-icon" />
+          <span className="navbar-toggler-icon" />
         </button>
         <div
-          class={`collapse navbar-collapse justify-content-end ${showCollapse()}`}
+          className={`collapse navbar-collapse justify-content-end ${showCollapse()}`}
         >
-          <ul class="navbar-nav">
+          <ul className="navbar-nav">
             <li className={`nav-item ${isActive("home")}`}>
-              <a class="nav-link" href="/">
+              <a className="nav-link" href="/">
                 HOME
               </a>
             </li>
             <li className={`nav-item ${isActive("comic")}`}>
-              <a class="nav-link" href="/comic">
+              <a className="nav-link" href="/comic">
                 COMIC
               </a>
             </li>

@@ -1,39 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { getTimeDifferenceFromNow } from "../functions/time";
 
-export default function Countdown({ date, setIsTimeOver }) {
-  let difference = 0;
-
-  const calculateTimeLeft = () => {
-    difference = +new Date(date) - +new Date();
-    let timeLeft = {};
-    let isTimeOver = true;
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-      isTimeOver = false;
-    }
-
-    setIsTimeOver(isTimeOver);
-
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+export default function Countdown({ date }) {
+  const [timeLeft, setTimeLeft] = useState(getTimeDifferenceFromNow(date));
 
   useEffect(() => {
     setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(getTimeDifferenceFromNow(date));
     }, 1000);
   });
 
   return (
     <>
-      {difference > 0 ? (
+      {timeLeft !== 0 ? (
         <div className="row row-sm-margin text-center text-body justify-content-center">
           <div className="col-12 col-sm-6 col-lg-auto">
             <div className="card card-body countdown-card">
