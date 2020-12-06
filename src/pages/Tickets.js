@@ -94,7 +94,11 @@ export default function Tickets() {
                 <p>
                   <strong>LEIA COM ATENÇÃO AS INFORMAÇÕES ABAIXO:</strong>
                 </p>
-                <p>Após pagamento, os valores não poderão ser reembolsados.</p>
+                <p>
+                  Após pagamento, os valores não poderão ser reembolsados. Caso
+                  o evento não possa ser realizado por motivo de força maior,
+                  será marcado para data posterior.
+                </p>
                 <p>
                   No momento, os pedidos estão sendo realizados de forma
                   individual (um ingresso por pedido), devido à uma necessidade
@@ -220,8 +224,8 @@ export default function Tickets() {
                     <div className="form-group">
                       <label>Cidade/Estado</label>
                       <input
-                        name="phone"
-                        type="tel"
+                        name="city"
+                        type="text"
                         className="form-control"
                         placeholder="Exemplo: Orizona/GO"
                         onChange={(e) =>
