@@ -1,8 +1,11 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
 
 import Navbar from "../components/Navbar";
 
 export default function Comic() {
+  const history = useHistory();
+
   return (
     <div className="min-vh-100 d-flex flex-column">
       <Navbar activeTab="comic" />
@@ -24,6 +27,13 @@ export default function Comic() {
               allowfullscreen
               title="lançamento comic 2021"
             />
+          </div>
+        </div>
+        <div className="container mt-4">
+          <div className="row">
+            <div className="col">
+              <button className="btn btn-primary btn-lg" onClick={() => history.push("/comic/ingressos")}>Ir para Ingressos</button>
+            </div>
           </div>
         </div>
       </section>
