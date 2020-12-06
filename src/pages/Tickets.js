@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import InputMask from "react-input-mask";
 
 import { db, store } from "../services/firebase";
 import { zeroFill } from "../services/numbers.service";
@@ -55,6 +56,19 @@ export default function Tickets() {
       .catch((error) => console.log("Erro " + error));
   }
 
+  function isRequestsOver(place) {
+    const response =
+      place === "bsb"
+        ? requestsCount?.bsbCount >= 300
+        : place === "gyn"
+        ? requestsCount?.gynCount >= 300
+        : place === "go"
+        ? requestsCount?.goCount >= 300
+        : null;
+
+    return response;
+  }
+
   async function submitForm(event) {
     event.preventDefault();
     setSent(true);
@@ -80,6 +94,22 @@ export default function Tickets() {
       });
 
     console.log(form);
+  }
+
+  function isValid() {
+    const validCpfRegex = RegExp(
+      /^([0-9]){3}\.([0-9]){3}\.([0-9]){3}-([0-9]){2}$/g
+    );
+    const validEmailRegex = RegExp(
+      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g
+    );
+    const validPhoneRegex = RegExp(/\([0-9]{2}\) [0-9]{5}-[0-9]{4}/g);
+
+    return (
+      validCpfRegex.test(form.cpf) &&
+      validEmailRegex.test(form.email) &&
+      validPhoneRegex.test(form.phone)
+    );
   }
 
   return (
@@ -139,9 +169,15 @@ export default function Tickets() {
                         <option value="" disabled>
                           Escolha o local
                         </option>
-                        <option value="bsb">Brasília</option>
-                        <option value="gyn">Goiânia</option>
-                        <option value="go">Pires do Rio</option>
+                        <option value="bsb" disabled={isRequestsOver("bsb")}>
+                          Brasília
+                        </option>
+                        <option value="gyn" disabled={isRequestsOver("gyn")}>
+                          Goiânia
+                        </option>
+                        <option value="go" disabled={isRequestsOver("go")}>
+                          Pires do Rio
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -163,9 +199,10 @@ export default function Tickets() {
                   <div className="col-12 col-md-6">
                     <div className="form-group">
                       <label>CPF</label>
-                      <input
+                      <InputMask
                         name="cpf"
-                        type="text"
+                        value={form.cpf}
+                        mask="999.999.999-99"
                         className="form-control"
                         placeholder="___.___.___-__"
                         onChange={(e) =>
@@ -180,7 +217,7 @@ export default function Tickets() {
                       <label>Email</label>
                       <input
                         name="email"
-                        type="text"
+                        type="email"
                         className="form-control"
                         placeholder="exemplo@email.com"
                         onChange={(e) =>
@@ -193,11 +230,13 @@ export default function Tickets() {
                   <div className="col-12 col-md-6">
                     <div className="form-group">
                       <label>WhatsApp</label>
-                      <input
-                        name="phone"
+                      <InputMask
                         type="tel"
+                        name="phone"
+                        value={form.phone}
+                        mask="(99) 99999-9999"
                         className="form-control"
-                        placeholder="DDD + Telefone"
+                        placeholder="(__) _____-____"
                         onChange={(e) =>
                           setForm({ ...form, phone: e.target.value })
                         }
@@ -236,13 +275,19 @@ export default function Tickets() {
                     </div>
                   </div>
                   <div className="col-12">
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      disabled={sent}
-                    >
-                      Finalizar Pedido
-                    </button>
+                    {sent ? (
+                      <button className="btn btn-primary" disabled>
+                        Pedido Enviado
+                      </button>
+                    ) : (
+                      <button
+                        type="submit"
+                        className="btn btn-primary"
+                        disabled={!isValid()}
+                      >
+                        Finalizar Pedido
+                      </button>
+                    )}
                   </div>
                 </div>
               </form>
