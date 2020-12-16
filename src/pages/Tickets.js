@@ -4,17 +4,19 @@ import InputMask from "react-input-mask";
 
 import { db, store } from "../services/firebase";
 import { zeroFill } from "../services/numbers.service";
+import { sendNewOrderMail } from "../services/mail.service";
 
 import Navbar from "../components/Navbar";
 
 const emptyForm = {
   name: "",
-  cpf: "",
-  email: "",
-  church: "",
-  city: "",
   place: "",
+  email: "",
+  cpf: "",
   phone: "",
+  city: "",
+  church: "",
+  leader: "",
 };
 
 export default function Tickets() {
@@ -50,23 +52,39 @@ export default function Tickets() {
         ...newPlaceCount,
         totalCount: requestsCount.totalCount + 1,
       })
-      .then(() => {
-        console.log("Contagem Atualizada");
-      })
       .catch((error) => console.log("Erro " + error));
   }
 
   function isRequestsOver(place) {
     const response =
       place === "bsb"
-        ? requestsCount?.bsbCount >= 300
+        ? requestsCount?.bsbCount > 256
         : place === "gyn"
-        ? requestsCount?.gynCount >= 300
+        ? requestsCount?.gynCount > 300
         : place === "go"
-        ? requestsCount?.goCount >= 300
+        ? requestsCount?.goCount > 300
         : null;
 
     return response;
+  }
+
+  function getDataForEmail(requestString) {
+    const place =
+      form.place === "bsb"
+        ? "Brasília"
+        : form.place === "gyn"
+        ? "Goiânia"
+        : form.place === "go"
+        ? "Pires do Rio"
+        : null;
+
+    const data = {
+      ...form,
+      id_string: requestString,
+      place: place,
+    };
+
+    return data;
   }
 
   async function submitForm(event) {
@@ -75,15 +93,17 @@ export default function Tickets() {
 
     const requestId = requestsCount.totalCount + 1;
     const requestNumber = zeroFill(requestId, 4);
+    const data = getDataForEmail(requestNumber);
 
     await store
       .collection("comic2021")
       .doc("ingressos")
       .collection(form.place)
       .doc("pedido" + requestNumber)
-      .set({ ...form, id: requestId })
+      .set({ ...form, id: requestId, datetime: new Date() })
       .then(() => {
         addToCount(form.place);
+        sendNewOrderMail(data);
         alert(
           `ANOTE O NÚMERO DO SEU PEDIDO: Pedido ${requestNumber}.\nAs instruções de pagamento serão enviadas para seu email em breve!`
         );
@@ -92,8 +112,6 @@ export default function Tickets() {
       .catch(() => {
         alert("Erro no pedido! Tente novamente mais tarde!");
       });
-
-    console.log(form);
   }
 
   function isValid() {
@@ -141,24 +159,32 @@ export default function Tickets() {
                   bancário.
                 </p>
                 <p>
-                  Os emails com as instruções estão sendo enviados manualmente.
-                  Caso o email demore mais de 3 dias para chegar, mande um email
-                  para umicbrasil@gmail.com
-                </p>
-                <p>
-                  Será enviada a confirmação de vagas e de pedido após a
-                  confirmação do pagamento. Pedidos sem pagamento poderão ser
-                  cancelados.
+                  Pedidos sem pagamento poderão ser cancelados. O novo pedido
+                  não garante sua vaga, ela só será garantida após a confirmação
+                  de pagamento.
                 </p>
               </div>
               <form onSubmit={submitForm}>
                 <h2 className="text-center">Preencha os campos abaixo</h2>
                 <div className="row">
-                  <div className="col-12">
+                  <div className="col-12 col-md-6">
                     <div className="form-group">
-                      <label>Selecione o local em que participará</label>
+                      <label>Nome</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Nome Completo"
+                        onChange={(e) =>
+                          setForm({ ...form, name: e.target.value })
+                        }
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                    <div className="form-group">
+                      <label>Local do COMIC</label>
                       <select
-                        name="place"
                         className="form-control"
                         value={form.place}
                         onChange={(e) =>
@@ -183,40 +209,8 @@ export default function Tickets() {
                   </div>
                   <div className="col-12 col-md-6">
                     <div className="form-group">
-                      <label>Nome</label>
-                      <input
-                        name="name"
-                        type="text"
-                        className="form-control"
-                        placeholder="Nome Completo"
-                        onChange={(e) =>
-                          setForm({ ...form, name: e.target.value })
-                        }
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-md-6">
-                    <div className="form-group">
-                      <label>CPF</label>
-                      <InputMask
-                        name="cpf"
-                        value={form.cpf}
-                        mask="999.999.999-99"
-                        className="form-control"
-                        placeholder="___.___.___-__"
-                        onChange={(e) =>
-                          setForm({ ...form, cpf: e.target.value })
-                        }
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-md-6">
-                    <div className="form-group">
                       <label>Email</label>
                       <input
-                        name="email"
                         type="email"
                         className="form-control"
                         placeholder="exemplo@email.com"
@@ -229,10 +223,26 @@ export default function Tickets() {
                   </div>
                   <div className="col-12 col-md-6">
                     <div className="form-group">
+                      <label>CPF</label>
+                      <InputMask
+                        required
+                        type="tel"
+                        value={form.cpf}
+                        mask="999.999.999-99"
+                        className="form-control"
+                        placeholder="___.___.___-__"
+                        onChange={(e) =>
+                          setForm({ ...form, cpf: e.target.value })
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                    <div className="form-group">
                       <label>WhatsApp</label>
                       <InputMask
+                        required
                         type="tel"
-                        name="phone"
                         value={form.phone}
                         mask="(99) 99999-9999"
                         className="form-control"
@@ -240,7 +250,21 @@ export default function Tickets() {
                         onChange={(e) =>
                           setForm({ ...form, phone: e.target.value })
                         }
+                      />
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                    <div className="form-group">
+                      <label>Cidade</label>
+                      <input
                         required
+                        type="text"
+                        value={form.city}
+                        className="form-control"
+                        placeholder="Cidade/Estado"
+                        onChange={(e) =>
+                          setForm({ ...form, city: e.target.value })
+                        }
                       />
                     </div>
                   </div>
@@ -248,29 +272,29 @@ export default function Tickets() {
                     <div className="form-group">
                       <label>Igreja</label>
                       <input
-                        name="email"
+                        required
                         type="text"
+                        value={form.church}
                         className="form-control"
-                        placeholder="Exemplo: Igreja de Cristo em Orizona"
+                        placeholder="ex: Igreja de Cristo em Orizona"
                         onChange={(e) =>
                           setForm({ ...form, church: e.target.value })
                         }
-                        required
                       />
                     </div>
                   </div>
                   <div className="col-12 col-md-6">
                     <div className="form-group">
-                      <label>Cidade/Estado</label>
+                      <label>Líder de Jovens</label>
                       <input
-                        name="city"
-                        type="text"
-                        className="form-control"
-                        placeholder="Exemplo: Orizona/GO"
-                        onChange={(e) =>
-                          setForm({ ...form, city: e.target.value })
-                        }
                         required
+                        type="text"
+                        value={form.leader}
+                        className="form-control"
+                        placeholder="Nome do(a) líder"
+                        onChange={(e) =>
+                          setForm({ ...form, leader: e.target.value })
+                        }
                       />
                     </div>
                   </div>

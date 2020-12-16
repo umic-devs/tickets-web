@@ -22,9 +22,9 @@ export default function Comic() {
             <iframe
               className="iframe"
               src="https://www.youtube.com/embed/hWuxX5ynyAs"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
               title="lançamento comic 2021"
             />
           </div>
