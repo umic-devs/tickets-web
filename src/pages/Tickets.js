@@ -4,8 +4,8 @@ import InputMask from "react-input-mask";
 
 import { db, store } from "../services/firebase";
 import { zeroFill } from "../services/numbers.service";
+import { sendToSheet } from "../services/drive.service";
 import { sendNewOrderMail } from "../services/mail.service";
-
 import Navbar from "../components/Navbar";
 
 const emptyForm = {
@@ -103,6 +103,11 @@ export default function Tickets() {
       .set({ ...form, id: requestId, datetime: new Date() })
       .then(() => {
         addToCount(form.place);
+        sendToSheet({
+          ...form,
+          id: requestNumber,
+          place: form.place.toUpperCase(),
+        });
         sendNewOrderMail(data);
         alert(
           `ANOTE O NÚMERO DO SEU PEDIDO: Pedido ${requestNumber}.\nAs instruções de pagamento serão enviadas para seu email em breve!`
