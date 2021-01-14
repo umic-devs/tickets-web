@@ -200,14 +200,14 @@ export default function Tickets() {
                         <option value="" disabled>
                           Escolha o local
                         </option>
-                        <option value="bsb" disabled={isRequestsOver("bsb")}>
-                          Brasília
-                        </option>
                         <option value="gyn" disabled={isRequestsOver("gyn")}>
                           Goiânia
                         </option>
-                        <option value="go" disabled={isRequestsOver("go")}>
-                          Pires do Rio
+                        <option value="go" disabled>
+                          Pires do Rio - Presencial Cancelado
+                        </option>
+                        <option value="bsb" disabled>
+                          Brasília - Presencial Cancelado
                         </option>
                       </select>
                     </div>
