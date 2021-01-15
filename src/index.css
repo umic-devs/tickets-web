@@ -1,6 +1,8 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 @import 'assets/fonts/Inter/Inter.css';
 @import 'assets/fonts/Lato/Lato.css';
+@import 'assets/fonts/Tommy/Tommy.css';
+
 :root {
   --black-comic: #0C0C0C;
   --white-comic: #FFFCEB;

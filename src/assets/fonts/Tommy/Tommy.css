@@ -1,0 +1,85 @@
+@font-face {
+    font-family: TOMMY;
+    src: url(./TOMMY-Thin.otf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: TOMMY;
+    src: url(./TOMMY-Light.otf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: TOMMY;
+    src: url(./TOMMY-Regular.otf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: TOMMY;
+    src: url(./TOMMY-Medium.otf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: TOMMY;
+    src: url(./TOMMY-Bold.otf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: TOMMY;
+    src: url(./TOMMY-ExtraBold.otf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: TOMMY;
+    src: url(./TOMMY-Black.otf);
+    font-weight: 900;
+}
+
+/* Outline */
+
+@font-face {
+    font-family: 'TOMMY Outline';
+    src: url(./TOMMY-ThinOutline.otf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'TOMMY Outline';
+    src: url(./TOMMY-LightOutline.otf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'TOMMY Outline';
+    src: url(./TOMMY-RegularOutline.otf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'TOMMY Outline';
+    src: url(./TOMMY-MediumOutline.otf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'TOMMY Outline';
+    src: url(./TOMMY-BoldOutline.otf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'TOMMY Outline';
+    src: url(./TOMMY-ExtraBoldOutline.otf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'TOMMY Outline';
+    src: url(./TOMMY-BlackOutline.otf);
+    font-weight: 900;
+}
