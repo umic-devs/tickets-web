@@ -55,18 +55,18 @@ export default function Tickets() {
       .catch((error) => console.log("Erro " + error));
   }
 
-  function isRequestsOver(place) {
-    const response =
-      place === "bsb"
-        ? requestsCount?.bsbCount > 256
-        : place === "gyn"
-        ? requestsCount?.gynCount > 300
-        : place === "go"
-        ? requestsCount?.goCount > 300
-        : null;
+  // function isRequestsOver(place) {
+  //   const response =
+  //     place === "bsb"
+  //       ? requestsCount?.bsbCount > 256
+  //       : place === "gyn"
+  //       ? requestsCount?.gynCount > 300
+  //       : place === "go"
+  //       ? requestsCount?.goCount > 300
+  //       : null;
 
-    return response;
-  }
+  //   return response;
+  // }
 
   function getDataForEmail(requestString) {
     const place =
