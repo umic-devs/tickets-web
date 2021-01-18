@@ -200,8 +200,9 @@ export default function Tickets() {
                         <option value="" disabled>
                           Escolha o local
                         </option>
-                        <option value="gyn" disabled={isRequestsOver("gyn")}>
-                          Goiânia
+                        {/* <option value="gyn" disabled={isRequestsOver("gyn")}> */}
+                        <option value="gyn" disabled>
+                          Goiânia - Indisponível no momento
                         </option>
                         <option value="go" disabled>
                           Pires do Rio - Presencial Cancelado
