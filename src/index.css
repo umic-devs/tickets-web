@@ -1,17 +1,9 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 @import 'assets/fonts/Inter/Inter.css';
 @import 'assets/fonts/Lato/Lato.css';
-@import 'assets/fonts/Tommy/Tommy.css';
-
+@import 'assets/fonts/Viga/Viga.css';
 :root {
-  --black-comic: #0C0C0C;
-  --white-comic: #FFFCEB;
-  --blue-comic: #1600FF;
-  --green-comic: #5FC815;
-  --pink-comic: #5FC815;
-  --red-comic: #F32828;
-  --purple-comic: #A123E9;
-  --yellow-comic: #FFD600;
+  --dark-bg: #1B1B1B;
 }
 
 body {
@@ -97,12 +89,32 @@ img {
 
 .navbar {
   top: 0;
-  font-weight: 600;
+  height: 72px;
+  font-family: Viga, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 1px;
+  background-color: var(--dark-bg);
+}
+
+.nav-link {
+  color: #FBFBFB;
+  padding-left: 0.7rem !important;
+  padding-right: 0.7rem !important;
+}
+
+.nav-link:hover {
+  color: #FBFBFB;
+  text-decoration: underline;
+}
+
+.active .nav-link {
+  color: #2EA3F2;
 }
 
 .navbar-brand {
-  height: 52px;
-  max-width: 52px;
+  height: 37px;
+  width: auto;
   padding-top: 2px;
   padding-bottom: 2px;
 }

@@ -1,22 +1,8 @@
-import React, { useState, useEffect } from "react";
-
-import ComingSoon from "./ComingSoon";
+import React from "react";
 import Navbar from "../components/Navbar";
-import { getTimeDifferenceFromNow } from "../functions/time";
 
 export default function Home() {
-  const date = "2020-11-7 20:00";
-  const [timeLeft, setTimeLeft] = useState(getTimeDifferenceFromNow(date));
-
-  useEffect(() => {
-    setTimeout(() => {
-      setTimeLeft(getTimeDifferenceFromNow(date));
-    }, 1000);
-  });
-
-  return timeLeft !== 0 ? (
-    <ComingSoon />
-  ) : (
+  return (
     <div className="min-vh-100 d-flex flex-column">
       <Navbar activeTab="home" />
       <section

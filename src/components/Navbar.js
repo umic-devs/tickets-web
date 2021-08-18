@@ -1,46 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 
-import logo from "../assets/images/umic-logo-white.svg";
+import logo from "../assets/images/umic/icon_logo-white.png";
 
 export default function Navbar({ activeTab }) {
-  const [collapse, setCollapse] = useState(false);
 
   function isActive(tab) {
     const active = tab === activeTab ? "active" : "";
     return active;
   }
 
-  function showCollapse() {
-    const show = collapse ? "show" : "";
-    return show;
-  }
-
   return (
-    <nav
-      className="navbar navbar-expand-sm navbar-dark"
-      style={{ backgroundColor: "#0c0c0c" }}
-    >
+    <nav className="navbar navbar-expand-sm">
       <div className="container">
-        <img src={logo} alt="umic logo" className="navbar-brand" />
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={() => setCollapse(!collapse)}
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div
-          className={`collapse navbar-collapse justify-content-end ${showCollapse()}`}
-        >
+        <a href="/">
+          <img src={logo} alt="umic logo" className="navbar-brand" />
+        </a>
+        <div className="justify-content-end d-none d-sm-block">
           <ul className="navbar-nav">
-            <li className={`nav-item ${isActive("home")}`}>
-              <a className="nav-link" href="/">
-                HOME
+            <li className={`nav-item ${isActive("blog")}`}>
+              <a className="nav-link" href="/blog">
+                BLOG
               </a>
             </li>
             <li className={`nav-item ${isActive("comic")}`}>
               <a className="nav-link" href="/comic">
                 COMIC
+              </a>
+            </li>
+            <li className={`nav-item ${isActive("blitz")}`}>
+              <a className="nav-link" href="/blitz">
+                BLITZ
               </a>
             </li>
           </ul>
