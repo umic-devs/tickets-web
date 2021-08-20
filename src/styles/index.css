@@ -1,9 +1,10 @@
 @import '~bootstrap/dist/css/bootstrap.css';
-@import 'assets/fonts/Inter/Inter.css';
-@import 'assets/fonts/Lato/Lato.css';
-@import 'assets/fonts/Viga/Viga.css';
+@import '../assets/fonts/Inter/Inter.css';
+@import '../assets/fonts/Lato/Lato.css';
+@import '../assets/fonts/Viga/Viga.css';
 :root {
-  --dark-bg: #1B1B1B;
+  --color-dark: #1B1B1B;
+  --color-light: #E0E0E0;
 }
 
 body {
@@ -14,7 +15,7 @@ body {
   line-height: 1.5;
   color: #0C0C0C;
   text-align: left;
-  background-color: #fff;
+  background-color: var(--color-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -31,7 +32,7 @@ body {
 
 .bg-comic {
   background-blend-mode: multiply;
-  background-image: url('./assets/images/bg-comic.jpg');
+  background-image: url('../assets/images/bg-comic.jpg');
   background-size: cover;
 }
 
@@ -41,6 +42,37 @@ body {
 
 img.bg-image {
   object-fit: cover;
+}
+
+.bg-dark {
+  background-color: var(--color-dark) !important;
+}
+
+/* Button */
+.btn {
+  font-weight: 600;
+  padding: .4375rem 1.25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out;
+  box-shadow: none !important;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #2a2a72;
+  border-color: #2a2a72;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+  color: #fff;
+  background-color: #202056 !important;
+  border-color: #1c1c4d !important;
 }
 
 /* Card */
@@ -55,6 +87,42 @@ img.bg-image {
   padding: 1rem;
   min-width: 180px;
   margin-bottom: 0.8rem;
+}
+
+/* Carousel */
+.carousel-home {
+  min-height: 414px;
+  width: 100%;
+  background-color: #FBFBFB;
+  border-radius: 14px;
+  box-shadow: rgb(230, 224, 215, .15) 0px 6px 24px 0px;
+}
+
+.carousel-home img {
+  border-radius: 14px;
+}
+
+.carousel-text-container {
+  padding: 32px 14px !important;
+  height: 100%;
+}
+
+.carousel-date {
+  color: #DB162F;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.carousel-title {
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.carousel-place {
+  color: #777777;
+  font-weight: 500;
+  font-size: .925rem;
 }
 
 /* Flex */
@@ -94,17 +162,17 @@ img {
   font-weight: 400;
   font-size: 18px;
   letter-spacing: 1px;
-  background-color: var(--dark-bg);
+  background-color: var(--color-dark);
 }
 
 .nav-link {
-  color: #FBFBFB;
+  color: var(--color-light);
   padding-left: 0.7rem !important;
   padding-right: 0.7rem !important;
 }
 
 .nav-link:hover {
-  color: #FBFBFB;
+  color: var(--color-light);
   text-decoration: underline;
 }
 

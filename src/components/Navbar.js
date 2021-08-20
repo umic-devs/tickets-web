@@ -17,11 +17,6 @@ export default function Navbar({ activeTab }) {
         </a>
         <div className="justify-content-end d-none d-sm-block">
           <ul className="navbar-nav">
-            <li className={`nav-item ${isActive("blog")}`}>
-              <a className="nav-link" href="/blog">
-                BLOG
-              </a>
-            </li>
             <li className={`nav-item ${isActive("comic")}`}>
               <a className="nav-link" href="/comic">
                 COMIC
@@ -30,6 +25,11 @@ export default function Navbar({ activeTab }) {
             <li className={`nav-item ${isActive("blitz")}`}>
               <a className="nav-link" href="/blitz">
                 BLITZ
+              </a>
+            </li>
+            <li className={`nav-item ${isActive("blog")}`}>
+              <a className="nav-link" href="/blog">
+                BLOG
               </a>
             </li>
           </ul>
