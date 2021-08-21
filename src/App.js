@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Conference from "./pages/Conference";
 
 export default function App() {
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/conferencia-lideres" exact component={Conference} />
         {/* <Route path="/comic" exact component={Comic} /> */}
         <Redirect to="/" />
       </Switch>

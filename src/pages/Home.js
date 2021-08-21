@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-import confBanner from "../assets/images/conf/conf-banner.png";
+import confBanner from "../assets/images/conference/conference-banner.png";
 
 export default function Home() {
   return (
@@ -17,9 +17,10 @@ export default function Home() {
               <div className="col-4">
                 <div className="carousel-text-container d-flex flex-column">
                   <p className="carousel-date">30 e 31 de Outubro, 2021</p>
-                  <h1 className="carousel-title">reconectar - Conferência de Líderes</h1>
+                  <h1 className="carousel-title">reconectar</h1>
+                  <h1 className="carousel-categ">Conferência de Líderes</h1>
                   <p className="carousel-place">Chácara Shalom, Goianira, Goiás</p>
-                  <button type="button" class="btn btn-lg btn-primary mt-auto" href="/">Saiba mais -&gt;</button>
+                  <a className="btn btn-conference mt-auto" href="/conferencia-lideres">Saiba mais -&gt;</a>
                 </div>
               </div>
             </div>

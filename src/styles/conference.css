@@ -1,0 +1,28 @@
+:root {
+  --color-dark: #1B1B1B;
+  --color-light: #E0E0E0;
+  --color-conference: #705D8A;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0C0C0C;
+  text-align: left;
+  background-color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background */
+
+.bg-conference {
+  background-blend-mode: multiply;
+  background-image: url('../assets/images/conference/conference-img.png');
+  background-color: #8670A6;
+  background-size: cover;
+}
+
