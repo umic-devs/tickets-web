@@ -12,7 +12,7 @@ export default function Home() {
           <div className="carousel-home" href="/">
             <div className="form-row">
               <div className="col-8">
-                <img src={confBanner} alt="banner da conferência" />
+                <div className="carousel-img" style={{ backgroundImage: `url(${confBanner})` }} />
               </div>
               <div className="col-4">
                 <div className="carousel-text-container d-flex flex-column">

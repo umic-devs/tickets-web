@@ -5,6 +5,7 @@
 :root {
   --color-dark: #1B1B1B;
   --color-light: #E0E0E0;
+  --color-red: #DE0E0E;
   --color-conference: #705D8A;
 }
 
@@ -89,65 +90,68 @@ img.bg-image {
     word-wrap: break-word;
     background-color: #FBFBFB;
     border: 1px solid rgba(0,0,0,.125);
-    border-radius: .625rem;
+    border-radius: 1rem;
     margin-bottom: 1.5rem;
 }
 
 /* Carousel */
 .carousel-home {
-  min-height: 414px;
   width: 100%;
   background-color: #FBFBFB;
-  border-radius: 14px;
+  border-radius: 1rem;
   box-shadow: rgb(230, 224, 215, .2) 0px 4px 18px 0px;
 }
 
-.carousel-home img {
-  border-radius: 14px;
+.carousel-img {
+  min-height: 440px;
+  width: 100%;
+  background-image: url('./assets/images/bg-comic.jpg');
+  background-size: cover;
+  border-radius: 1rem;
 }
 
 .carousel-text-container {
-  padding: 32px 26px 32px 14px !important;
+  padding: 30px 30px 30px 20px !important;
   height: 100%;
 }
 
 .carousel-date {
-  color: #DB162F;
-  font-weight: 500;
+  color: var(--color-red);
+  font-weight: 600;
   font-size: 1.125rem;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 .carousel-title {
   color: var(--color-dark);
   font-weight: 700;
-  font-size: 1.8rem;
-  margin-bottom: 2px;
+  font-size: 2.5rem;
+  margin-bottom: 6px;
 }
 
 .carousel-categ {
   color: var(--color-dark);
   font-weight: 600;
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
 }
 
 .carousel-place {
   color: #777777;
   font-weight: 500;
-  font-size: .925rem;
+  font-size: 1rem;
 }
 
 /* Grid */
 
 .row {
-  margin-right: -10px !important;
-  margin-left: -10px !important;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
-  padding-right: 10px !important;
-  padding-left: 10px !important;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 /* Images */
@@ -184,7 +188,7 @@ img {
 }
 
 .active .nav-link {
-  color: #2EA3F2;
+  color: #2EA2F2;
 }
 
 .navbar-brand {
