@@ -240,6 +240,11 @@ img {
   height: calc(var(--vh, 1vh) * 100);
 }
 
+section {
+  padding-top: 2.65rem;
+  padding-bottom: 2.5rem;
+}
+
 /* iFrame */
 
 .iframe-container {

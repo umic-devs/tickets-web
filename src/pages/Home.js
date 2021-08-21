@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div className="min-vh-100 d-flex flex-column">
       <Navbar activeTab="home" />
-      <section className="bg-dark">
-        <div className="container py-4">
+      <section className="bg-dark pb-1">
+        <div className="container">
           <div className="carousel-home" href="/">
             <div className="form-row">
               <div className="col-8">
@@ -27,7 +27,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="py-4">
+      <section>
         <div className="container">
           <div className="row mb-3 text-light">
             <div className="col">

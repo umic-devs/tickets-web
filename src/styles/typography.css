@@ -32,4 +32,10 @@
 
 p {
     color: #495057;
+    letter-spacing: -.02em;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 400;
 }
