@@ -1,7 +1,7 @@
 @import '~bootstrap/dist/css/bootstrap.css';
-@import '../assets/fonts/fonts.css';
-@import './conference.css';
-@import './typography.css';
+@import './assets/fonts/fonts.css';
+@import './styles/conference.css';
+@import './styles/typography.css';
 :root {
   --color-dark: #1B1B1B;
   --color-light: #E0E0E0;
@@ -33,7 +33,7 @@ body {
 
 .bg-comic {
   background-blend-mode: multiply;
-  background-image: url('../assets/images/bg-comic.jpg');
+  background-image: url('./assets/images/bg-comic.jpg');
   background-size: cover;
 }
 
@@ -67,22 +67,6 @@ img.bg-image {
   border-radius: .35rem;
 }
 
-.btn-conference {
-  color: #fff;
-  background-color: #42426d !important;
-  border-color: #42426d !important;
-}
-
-.btn-conference:hover, .btn-conference:active, .btn-conference:focus {
-  color: #fff;
-  filter: brightness(90%);
-}
-
-.btn-conference:active, .btn-conference:focus {
-  color: #fff;
-  filter: brightness(80%);
-}
-
 /* Card */
 
 @media (max-width: 767.98px) {
@@ -91,10 +75,22 @@ img.bg-image {
   }
 }
 
-.countdown-card {
-  padding: 1rem;
-  min-width: 180px;
-  margin-bottom: 0.8rem;
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.75rem;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #FBFBFB;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .625rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Carousel */
@@ -103,7 +99,7 @@ img.bg-image {
   width: 100%;
   background-color: #FBFBFB;
   border-radius: 14px;
-  box-shadow: rgb(230, 224, 215, .15) 0px 6px 24px 0px;
+  box-shadow: rgb(230, 224, 215, .2) 0px 4px 18px 0px;
 }
 
 .carousel-home img {
@@ -111,7 +107,7 @@ img.bg-image {
 }
 
 .carousel-text-container {
-  padding: 32px 14px !important;
+  padding: 32px 26px 32px 14px !important;
   height: 100%;
 }
 
@@ -142,22 +138,16 @@ img.bg-image {
   font-size: .925rem;
 }
 
-/* Flex */
-
-.flex-grow-1 {
-  flex-grow: 1;
-}
-
 /* Grid */
 
 .row {
-  margin-right: -6px !important;
-  margin-left: -6px !important;
+  margin-right: -10px !important;
+  margin-left: -10px !important;
 }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
-  padding-right: 6px !important;
-  padding-left: 6px !important;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
 }
 
 /* Images */
