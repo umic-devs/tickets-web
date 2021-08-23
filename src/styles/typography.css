@@ -1,41 +1,175 @@
-.display-1, .display-2, .display-3, .display-4, .h1, .h2, .h3, .h4, h1, h2, h3, h4 {
-    letter-spacing: -.02em;
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1rem;
-    font-family: inherit;
-    font-weight: 600;
-    line-height: 1.2;
+body {
+  color: #495057;
+  font-size: 1rem;
+  font-family: Inter, Arial, sans-serif;
+}
+
+@media (max-width: 1200px) {
+  body {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 0.875rem;
+  }
+}
+
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.h1,
+.h2,
+.h3,
+.h4,
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #212529;
+}
+
+.h5,
+.h6,
+h5,
+h6 {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #212529;
+}
+
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #212529;
 }
 
 .display-1 {
-    font-size: 5rem !important;
-    font-weight: 600 !important;
+  font-size: 5.5rem;
 }
 
 .display-2 {
-    font-size: 4.5rem !important;
+  font-size: 4.5rem;
 }
 
 .display-3 {
-    font-size: 4rem !important;
+  font-size: 3.5rem;
 }
 
 .display-4 {
-    font-size: 3rem !important;
-}
-
-.display-5 {
-    font-size: 2rem !important;
-}
-
-p {
-    color: #495057;
-    letter-spacing: -.02em;
+  font-size: 2.5rem;
 }
 
 .lead {
-    font-size: 1.25rem;
-    font-weight: 400;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+.small,
+small {
+  font-size: 0.75rem;
+}
+
+.text-small,
+small {
+  font-weight: 600;
+}
+
+small {
+  display: inline-block;
+  line-height: 1.1875rem;
+}
+
+@media (max-width: 1200px) {
+  .display-1 {
+    font-size: 5rem;
+  }
+
+  .display-2 {
+    font-size: 4rem;
+  }
+
+  .display-3 {
+    font-size: 3rem;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .display-1 {
+    font-size: 4.5rem;
+  }
+
+  .display-2 {
+    font-size: 3.5rem;
+  }
+
+  .display-3 {
+    font-size: 3rem;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+}
+
+.text-light .display-1,
+.text-light .display-2,
+.text-light .display-3,
+.text-light .display-4,
+.text-light .h1,
+.text-light .h2,
+.text-light .h3,
+.text-light .h4,
+.text-light .h5,
+.text-light .h6,
+.text-light a:not(.btn),
+.text-light h1,
+.text-light h2,
+.text-light h3,
+.text-light h4,
+.text-light h5,
+.text-light h6 {
+  color: #fff;
+}
+
+.text-muted {
+  color: #8d939a !important;
+}
+
+.text-light .text-muted {
+  color: #ffffffb3 !important;
 }
