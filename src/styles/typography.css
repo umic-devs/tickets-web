@@ -56,7 +56,7 @@ h5,
 h6 {
   margin-bottom: 0.75rem;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.2;
   color: #212529;
 }
 
@@ -108,6 +108,10 @@ small {
 small {
   display: inline-block;
   line-height: 1.1875rem;
+}
+
+a {
+  font-weight: 600;
 }
 
 @media (max-width: 1200px) {
