@@ -9,13 +9,13 @@ body {
   font-family: Inter, Arial, sans-serif;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199.98px) {
   body {
     font-size: 0.9375rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   body {
     font-size: 0.875rem;
   }
@@ -114,7 +114,7 @@ a {
   font-weight: 600;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199.98px) {
   .display-1 {
     font-size: 5rem;
   }
@@ -132,21 +132,43 @@ a {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .display-1 {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 
   .display-2 {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
   .display-3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .display-4 {
     font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .display-1 {
+    font-size: 3rem;
+  }
+
+  .display-2 {
+    font-size: 2.5rem;
+  }
+
+  .display-3 {
+    font-size: 2rem;
+  }
+
+  .display-4 {
+    font-size: 1.5rem;
   }
 }
 
@@ -171,9 +193,13 @@ a {
 }
 
 .text-muted {
-  color: #8d939a !important;
+  color: #777777 !important;
 }
 
 .text-light .text-muted {
   color: #ffffffb3 !important;
+}
+
+.text-warning {
+  color: var(--color-red) !important;
 }

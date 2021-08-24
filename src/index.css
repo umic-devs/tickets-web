@@ -46,7 +46,7 @@ img.bg-image {
 }
 
 .bg-dark-blue {
-  background-color: #1b1f3b!important;
+  background-color: #1b1f3b !important;
 }
 
 /* Button */
@@ -76,42 +76,14 @@ img.bg-image {
 }
 
 .carousel-img {
-  min-height: 440px;
   width: 100%;
+  padding-bottom: 60%;
   background-size: cover;
   border-radius: 1rem;
 }
 
 .carousel-text-container {
   padding: 30px 30px 30px 20px !important;
-  height: 100%;
-}
-
-.carousel-date {
-  color: var(--color-red);
-  font-weight: 600;
-  font-size: 1.125rem;
-  margin-bottom: 18px;
-}
-
-.carousel-title {
-  color: var(--color-dark);
-  font-weight: 700;
-  font-size: 2.5rem;
-  margin-bottom: 6px;
-}
-
-.carousel-categ {
-  color: var(--color-dark);
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin-bottom: 18px;
-}
-
-.carousel-place {
-  color: #777777;
-  font-weight: 500;
-  font-size: 1rem;
 }
 
 /* Grid */

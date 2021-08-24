@@ -8,14 +8,14 @@ export default function Footer({ className }) {
     <footer className={className}>
       <div className="container">
         <div className="row justify-content-between mb-3">
-          <div className="col">
+          <div className="col-12 col-xl-5 mb-3 mb-lg-0 text-center text-xl-left">
             <a href="/">
-              <img src={logo} alt="umic logo" className="navbar-brand" />
+              <img src={logo} alt="umic logo" className="navbar-brand mr-0" />
             </a>
-            <ul className="nav mt-3">
+            <ul className="nav mt-3 justify-content-center justify-content-xl-start">
               <li className="nav-item">
                 <a
-                  className="nav-link pl-0 mr-2"
+                  className="nav-link pl-xl-0"
                   href="https://www.instagram.com/umicbrasil"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -25,7 +25,7 @@ export default function Footer({ className }) {
               </li>
               <li className="nav-item">
                 <a
-                  className="nav-link pl-0 mr-2"
+                  className="nav-link"
                   href="https://www.facebook.com/UMICBRASIL"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -35,7 +35,7 @@ export default function Footer({ className }) {
               </li>
               <li className="nav-item">
                 <a
-                  className="nav-link pl-0 mr-2"
+                  className="nav-link"
                   href="https://www.youtube.com/c/UMICBrasil"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -44,30 +44,30 @@ export default function Footer({ className }) {
                 </a>
               </li>
             </ul>
-            <ul className="nav mt-2">
+            <ul className="nav mt-2 justify-content-center justify-content-xl-start">
               <li className="nav-item">
-                <a className="nav-link pl-0 mr-2" href="/blog">
+                <a className="nav-link pl-xl-0" href="/blog">
                   Blog
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link pl-0 mr-2" href="/blitz">
+                <a className="nav-link" href="/blitz">
                   Blitz
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link pl-0 mr-2" href="/comic">
+                <a className="nav-link" href="/comic">
                   COMIC
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link pl-0 mr-2" href="/conferencia-lideres">
+                <a className="nav-link" href="/conferencia-lideres">
                   Conferência de Líderes
                 </a>
               </li>
             </ul>
           </div>
-          <div className="col-3">
+          <div className="col-12 col-md-5 col-xl-3 mb-3 mb-xl-0">
             <h5>Faça sua doação</h5>
             <span className="d-block text-muted text-small">
               CAIXA ECONÔMICA FEDERAL
@@ -85,7 +85,7 @@ export default function Footer({ className }) {
               PIX: umicbrasil@gmail.com
             </span>
           </div>
-          <div className="col-lg-5 col-xl-4">
+          <div className="col-12 col-md-7 col-xl-4">
             <h5>Inscreva-se</h5>
             <p>Receba novidades da UMIC no seu email.</p>
             <form>

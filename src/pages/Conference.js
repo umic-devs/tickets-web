@@ -28,7 +28,7 @@ export default function Home() {
       <section className="bg-dark text-light">
         <div className="container">
           <div className="row">
-            <div className="col-md-8">
+            <div className="col-12 col-lg-8">
               <h2>
                 Dois dias de imersão na Palavra e orientações entre líderes.
               </h2>

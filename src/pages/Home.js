@@ -12,20 +12,22 @@ export default function Home() {
         <div className="container">
           <div className="carousel-home" href="/">
             <div className="form-row">
-              <div className="col-8">
+              <div className="col-12 col-lg-8">
                 <div
                   className="carousel-img"
                   style={{ backgroundImage: `url(${confBanner})` }}
                 />
               </div>
-              <div className="col-4">
-                <div className="carousel-text-container d-flex flex-column">
-                  <p className="carousel-date">30 e 31 de Outubro, 2021</p>
-                  <h1 className="carousel-title">reconectar</h1>
-                  <h1 className="carousel-categ">Conferência de Líderes</h1>
-                  <p className="carousel-place">
+              <div className="col-12 col-lg-4">
+                <div className="carousel-text-container h-100 d-flex flex-column">
+                  <h6 className="text-warning mb-2">
+                    30 e 31 de Outubro, 2021
+                  </h6>
+                  <h1 className="font-weight-bolder mb-1">reconectar</h1>
+                  <h5 className="mb-3">Conferência de Líderes</h5>
+                  <h6 className="text-muted font-weight-lighter">
                     Chácara Shalom, Goianira, Goiás
-                  </p>
+                  </h6>
                   <a
                     className="btn btn-conference mt-auto"
                     href="/conferencia-lideres"
