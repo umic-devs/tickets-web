@@ -21,19 +21,20 @@ export default function Home() {
               <div className="col-12 col-lg-4">
                 <div className="carousel-text-container h-100 d-flex flex-column">
                   <h6 className="text-warning mb-2">
-                    30 e 31 de Outubro, 2021
+                    26 de Fevereiro a 1º de Março, 2022
                   </h6>
-                  <h1 className="font-weight-bolder mb-1">reconectar</h1>
-                  <h5 className="mb-3">Conferência de Líderes</h5>
+                  <h1 className="font-weight-bolder mb-1">VOCAÇÃO</h1>
+                  <h5 className="mb-3">COMIC 2022</h5>
                   <h6 className="text-muted font-weight-lighter">
-                    Chácara Shalom, Goianira, Goiás
+                    Morrinhos, GO
                   </h6>
-                  <a
+                  <button
                     className="btn btn-conference mt-auto"
                     href="/conferencia-lideres"
+                    disabled
                   >
-                    Saiba mais -&gt;
-                  </a>
+                    Inscrições em breve
+                  </button>
                 </div>
               </div>
             </div>

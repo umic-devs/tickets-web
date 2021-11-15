@@ -21,15 +21,15 @@
     <a href="https://github.com/umic-devs/umic-wiki"><strong>Acesse a documentação</strong></a>
 </p>
 
-### Sobre o projeto
+## Sobre o projeto
 
 A *UMIC* é a União das Mocidades da Igreja de Cristo, e busca a unidade entre o passado, presente e futuro da Igreja de Cristo, com ações que visam alimentar o desejo de servir à Deus como igreja. Dentre essas ações temos o COMIC, congresso que acontece durante o feriado do carnaval, e a Blitz, que é um projeto que visa o estímulo às missões de evangelismo através de viagens missionárias com jovens.
 
 ## Tecnologias utilizadas
 
-**Desenvolvido** com [React](https://reactjs.org/)
+Desenvolvido com [React](https://reactjs.org/)
 
-## #Instalação
+## Instalação
 
 Esse projeto requer a instalação prévia do npm através do [node.js](https://nodejs.org/en/download/).
 
