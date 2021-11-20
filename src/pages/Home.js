@@ -2,9 +2,13 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-import confBanner from '../assets/images/conference/conference-banner.png'
+import banner from '../assets/images/comic/comic2022-banner.png'
 
 export default function Home() {
+  const handleButtonClick = () => {
+    window.location.href = '/ingressos-comic-2022'
+  }
+
   return (
     <div className="min-vh-100 d-flex flex-column">
       <Navbar activeTab="home" />
@@ -15,7 +19,7 @@ export default function Home() {
               <div className="col-12 col-lg-8">
                 <div
                   className="carousel-img"
-                  style={{ backgroundImage: `url(${confBanner})` }}
+                  style={{ backgroundImage: `url(${banner})` }}
                 />
               </div>
               <div className="col-12 col-lg-4">
@@ -30,8 +34,7 @@ export default function Home() {
                   </h6>
                   <button
                     className="btn btn-conference mt-auto"
-                    href="/conferencia-lideres"
-                    disabled
+                    onClick={handleButtonClick}
                   >
                     Inscrições em breve
                   </button>
