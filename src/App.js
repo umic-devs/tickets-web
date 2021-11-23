@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "./pages/Home";
-import IngressosCOMIC from "./pages/IngressosCOMIC";
+import IngressosCOMIC from "./pages/IngressosCOMIC/index";
 
 export default function App() {
   useEffect(() => {
