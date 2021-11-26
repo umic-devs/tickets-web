@@ -1,0 +1,22 @@
+.ingresso-item-title {
+  color: #2e2e2e;
+  font-size: 1.2em;
+  line-height: 1em;
+  font-weight: bold;
+}
+
+.ingresso-item-type {
+  color: #2e2e2e;
+  font-size: 1.1em;
+  line-height: 1em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+
+.ingresso-item-price {
+  color: #2e2e2e;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 600;
+  margin-bottom: 0;
+}

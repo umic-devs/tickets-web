@@ -10,9 +10,12 @@ export default function Step3({ setStep, formData, setFormData }) {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const step3Data = JSON.parse(localStorage.getItem("step3Data") || "{}");
 
   const onSubmit = (data) => {
-    setFormData({ ...formData, ...data });
+    const newFormData = { ...formData, ...data };
+    localStorage.setItem("step3Data", JSON.stringify(newFormData));
+    setFormData(newFormData);
     setStep(4);
   };
 
@@ -24,7 +27,7 @@ export default function Step3({ setStep, formData, setFormData }) {
             <div className="row">
               <div className="col-12">
                 <div className="mb-3">
-                  <h1>Inscrição COMIC 2022</h1>
+                  <h2>Inscrição COMIC 2022</h2>
                   <h4>Dados de quem irá retirar o pedido</h4>
                   <p>
                     <strong>
@@ -42,6 +45,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <input
                     className="form-control"
                     placeholder="Nome"
+                    defaultValue={step3Data.nome || ""}
                     {...register("nome", {
                       required: true,
                       minLength: 2,
@@ -65,6 +69,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <input
                     className="form-control"
                     placeholder="Sobrenome"
+                    defaultValue={step3Data.sobrenome || ""}
                     {...register("sobrenome", {
                       required: true,
                       minLength: 2,
@@ -84,10 +89,59 @@ export default function Step3({ setStep, formData, setFormData }) {
               </div>
               <div className="col-12 col-md-6">
                 <div className="form-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="exemplo@email.com"
+                    defaultValue={step3Data.email || ""}
+                    {...register("email", {
+                      required: true,
+                      pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g,
+                    })}
+                  />
+                  {errors.email?.type === "required" && (
+                    <small>Email é obrigatório</small>
+                  )}
+                  {errors.email?.type === "pattern" && (
+                    <small>O email deve estar no formato correto</small>
+                  )}
+                </div>
+              </div>
+              <div className="col-12 col-md-6">
+                <div className="form-group">
+                  <label>Confirmar Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="exemplo@email.com"
+                    defaultValue={step3Data.email_confirmacao || ""}
+                    {...register("email_confirmacao", {
+                      required: true,
+                      pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g,
+                      validate: {
+                        match: (value) => watch("email") === value,
+                      },
+                    })}
+                  />
+                  {errors.email_confirmacao?.type === "required" && (
+                    <small>Email é obrigatório</small>
+                  )}
+                  {errors.email_confirmacao?.type === "pattern" && (
+                    <small>O email deve estar no formato correto</small>
+                  )}
+                  {errors.email_confirmacao?.type === "match" && (
+                    <small>Os emails não são iguais</small>
+                  )}
+                </div>
+              </div>
+              <div className="col-12 col-md-6">
+                <div className="form-group">
                   <label>CPF</label>
                   <Controller
                     name="cpf"
                     control={control}
+                    defaultValue={step3Data.cpf || ""}
                     rules={{
                       required: true,
                       pattern:
@@ -117,6 +171,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <Controller
                     name="telefone"
                     control={control}
+                    defaultValue={step3Data.telefone || ""}
                     rules={{
                       required: true,
                       pattern: /\([0-9]{2}\) [0-9]{5}-[0-9]{4}/g,
@@ -141,56 +196,11 @@ export default function Step3({ setStep, formData, setFormData }) {
               </div>
               <div className="col-12 col-md-6">
                 <div className="form-group">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="exemplo@email.com"
-                    {...register("email", {
-                      required: true,
-                      pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g,
-                    })}
-                  />
-                  {errors.email?.type === "required" && (
-                    <small>Email é obrigatório</small>
-                  )}
-                  {errors.email?.type === "pattern" && (
-                    <small>O email deve estar no formato correto</small>
-                  )}
-                </div>
-              </div>
-              <div className="col-12 col-md-6">
-                <div className="form-group">
-                  <label>Confirmar Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="exemplo@email.com"
-                    {...register("email_confirmacao", {
-                      required: true,
-                      pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g,
-                      validate: {
-                        match: (value) => watch("email") === value,
-                      },
-                    })}
-                  />
-                  {errors.email_confirmacao?.type === "required" && (
-                    <small>Email é obrigatório</small>
-                  )}
-                  {errors.email_confirmacao?.type === "pattern" && (
-                    <small>O email deve estar no formato correto</small>
-                  )}
-                  {errors.email_confirmacao?.type === "match" && (
-                    <small>Os emails não são iguais</small>
-                  )}
-                </div>
-              </div>
-              <div className="col-12 col-md-6">
-                <div className="form-group">
                   <label>Nome da Igreja</label>
                   <input
                     className="form-control"
                     placeholder="Ex: Igreja de Cristo em Brasília"
+                    defaultValue={step3Data.igreja || ""}
                     {...register("igreja", {
                       required: true,
                       minLength: 2,
@@ -225,6 +235,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <input
                     className="form-control"
                     placeholder="Ex: Morrinhos/GO"
+                    defaultValue={step3Data.cidade || ""}
                     {...register("cidade", {
                       required: true,
                       minLength: 2,
@@ -244,15 +255,15 @@ export default function Step3({ setStep, formData, setFormData }) {
               </div>
             </div>
             <div className="row justify-content-between align-items-center">
-              <div className="col-auto">
+              <div className="col-4 col-md-4">
                 <button
                   className="btn px-0 text-primary"
                   onClick={() => setStep(2)}
                 >
-                  Voltar
+                  {"<-"} Voltar
                 </button>
               </div>
-              <div className="col-3 text-right">
+              <div className="col-8 col-md-4 text-right">
                 <button type="submit" className="btn btn-primary btn-block">
                   Continuar
                 </button>

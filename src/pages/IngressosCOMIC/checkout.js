@@ -7,13 +7,13 @@ export default function Checkout({ data, success }) {
     } else {
       return "Erro ao realizar a compra";
     }
-  }
+  };
   return (
     <React.Fragment>
       <div className="row justify-content-center text-justify">
         <div className="col-12 col-md-9">
           <div className="mb-3">
-            <h1>Inscrição COMIC 2022</h1>
+            <h2>Inscrição COMIC 2022</h2>
             <h4>{getTitle}</h4>
             <p>
               <strong>

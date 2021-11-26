@@ -1,10 +1,11 @@
-@import '~bootstrap/dist/css/bootstrap.css';
-@import './assets/fonts/fonts.css';
-@import './styles/conference.css';
-@import './styles/typography.css';
-@import './styles/footers.css';
-@import './styles/navs.css';
-@import './styles/card.css';
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "./assets/fonts/fonts.css";
+@import "./styles/conference.css";
+@import "./styles/typography.css";
+@import "./styles/ingressos.css";
+@import "./styles/footers.css";
+@import "./styles/navs.css";
+@import "./styles/card.css";
 :root {
   --color-dark: #1b1b1b;
   --color-light: #fbfbfb;
@@ -29,11 +30,11 @@ body {
 
 .bg-comic {
   background-blend-mode: multiply;
-  background-image: url('./assets/images/comic/comic2020-img.jpg');
+  background-image: url("./assets/images/comic/comic2020-img.jpg");
   background-size: cover;
 }
 
-.bg-image:not([class*='absolute']) {
+.bg-image:not([class*="absolute"]) {
   position: absolute;
 }
 
@@ -95,8 +96,13 @@ img.bg-image {
 .decoration-line {
   width: 100%;
   height: 1px;
-  background-color: #e6e6e6;
-  margin: 0.5rem 0;
+  background-color: #a6a6a6;
+  margin: 0.5rem 0.5rem;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 0.5rem;
 }
 
 /* Grid */

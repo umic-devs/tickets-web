@@ -1,13 +1,13 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-import banner from '../assets/images/comic/comic2022-banner.png'
+import banner from "../assets/images/comic/comic2022-banner.png";
 
 export default function Home() {
   const handleButtonClick = () => {
-    window.location.href = '/ingressos-comic-2022'
-  }
+    window.location.href = "/ingressos-comic-2022";
+  };
 
   return (
     <div className="min-vh-100 d-flex flex-column">
@@ -36,7 +36,7 @@ export default function Home() {
                     className="btn btn-conference mt-auto"
                     onClick={handleButtonClick}
                   >
-                    Inscrições em breve
+                    Comprar ingressos
                   </button>
                 </div>
               </div>
@@ -90,5 +90,5 @@ export default function Home() {
       </section>
       <Footer className="bg-dark-blue text-light" />
     </div>
-  )
+  );
 }
