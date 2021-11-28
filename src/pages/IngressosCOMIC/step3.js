@@ -225,7 +225,9 @@ export default function Step3({ setStep, formData, setFormData }) {
                     </small>
                   )}
                   {errors.igreja?.type === "igreja_de_cristo" && (
-                    <small>Qual Igreja de Cristo, abençoado(a)?</small>
+                    <small className="text-danger">
+                      Qual Igreja de Cristo, abençoado(a)?
+                    </small>
                   )}
                 </div>
               </div>
@@ -250,6 +252,29 @@ export default function Step3({ setStep, formData, setFormData }) {
                   )}
                   {errors.cidade?.type === "maxLength" && (
                     <small>Cidade deve ter menos que 50 caracteres</small>
+                  )}
+                </div>
+              </div>
+              <div className="col-12 col-md-6">
+                <div className="form-group">
+                  <label>FORMA DE PAGAMENTO</label>
+                  <Controller
+                    name="formaPagamento"
+                    control={control}
+                    defaultValue={step3Data.formaPagamento || ""}
+                    rules={{
+                      required: true,
+                    }}
+                    render={({ field }) => (
+                      <select {...field} className="form-control">
+                        <option value="">Escolha uma forma de pagamento</option>
+                        <option value="pix">PIX</option>
+                        <option value="credito">Cartão de crédito</option>
+                      </select>
+                    )}
+                  />
+                  {errors.formaPagamento?.type === "required" && (
+                    <small>Forma de pagamento é obrigatório</small>
                   )}
                 </div>
               </div>

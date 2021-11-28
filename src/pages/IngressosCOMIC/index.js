@@ -7,6 +7,7 @@ import Step1 from "./step1";
 import Step2 from "./step2";
 import Step3 from "./step3";
 import Step4 from "./step4";
+import Checkout from "./checkout";
 
 export default function IngressosCOMIC() {
   const [step, setStep] = useState(1);
@@ -20,13 +21,6 @@ export default function IngressosCOMIC() {
   const formDataProps = {
     formData: formData,
     setFormData: setFormData,
-  };
-
-  const ingressosData = {
-    sem_int: [formData.qtd_sem_alimentacao, "Sem Alimentação (Inteira)"],
-    sem_meia: [formData.qtd_sem_alimentacao_meia, "Sem Alimentação (Meia)"],
-    com_int: [formData.qtd_com_alimentacao, "Completo (Inteira)"],
-    com_meia: [formData.qtd_com_alimentacao_meia, "Completo (Meia)"],
   };
 
   const getIngressosData = (data, tipo, index, id) => ({
@@ -69,6 +63,7 @@ export default function IngressosCOMIC() {
           telefone: data.telefone,
           igreja: data.igreja,
           cidade: data.cidade,
+          forma_pagamento: data.formaPagamento,
           qtd_ingressos: {
             com_int: data.qtd_com_alimentacao,
             com_meia: data.qtd_com_alimentacao_meia,
@@ -145,19 +140,23 @@ export default function IngressosCOMIC() {
           .then(async () => {
             await batch
               .commit()
-              .then(() => {
+              .then(async () => {
+                // TODO: pagSeguro
                 // localStorage.removeItem("step4Data"); // TODO: uncomment this line to clear localStorage
+                localStorage.setItem("pedido", newPedidoName); // TODO: uncomment this line to clear localStorage
+                localStorage.setItem("forma_pagamento", data.formaPagamento); // TODO: uncomment this line to clear localStorage
                 // sendNewOrderMail(data); // TODO: send email
                 setSent(false);
                 alert(
                   `ANOTE O NÚMERO DO SEU PEDIDO:\nPEDIDO ${newPedidoName}.\n\nAs instruções de pagamento serão enviadas para seu email em breve!`
                 );
-                // TODO: pagSeguro
+                setStep(5);
               })
               .catch((error) => {
                 console.error(error);
                 setSent(false);
                 alert("Erro no pedido! Tente novamente mais tarde!");
+                setStep(1);
               });
           })
           .catch((error) => {
@@ -190,6 +189,7 @@ export default function IngressosCOMIC() {
               handleFormSubmit={handleFormSubmit}
             />
           )}
+          {step === 5 && <Checkout {...formDataProps} />}
         </div>
       </section>
     </React.Fragment>

@@ -4,7 +4,6 @@ import { useForm, Controller } from "react-hook-form";
 
 export default function Step4({
   sent,
-  setSent,
   setStep,
   formData,
   setFormData,
