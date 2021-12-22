@@ -1,7 +1,7 @@
 import React from "react";
 
 const SEM_ALIMENTACAO = 130;
-const COM_ALIMENTACAO = 290;
+const COM_ALIMENTACAO = 260;
 
 export default function Step2({ setStep, formData, setFormData }) {
   function getTotal() {
@@ -54,7 +54,8 @@ export default function Step2({ setStep, formData, setFormData }) {
                             Meia <small>(Entre 5 e 12 anos incompletos)</small>
                           </p>
                           <p className="ingresso-item-price">
-                            R$ 65,00 <small>(até 10/01/2022)</small>
+                            R$ {SEM_ALIMENTACAO / 2},00{" "}
+                            <small>(até 10/01/2022)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -84,7 +85,8 @@ export default function Step2({ setStep, formData, setFormData }) {
                         <div className="col-8">
                           <p className="ingresso-item-type">Inteira</p>
                           <p className="ingresso-item-price">
-                            R$ 130,00 <small>(até 10/01/2022)</small>
+                            R$ {SEM_ALIMENTACAO},00{" "}
+                            <small>(até 10/01/2022)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -127,7 +129,8 @@ export default function Step2({ setStep, formData, setFormData }) {
                             Meia <small>(Entre 5 e 12 anos incompletos)</small>
                           </p>
                           <p className="ingresso-item-price">
-                            R$ 145,00 <small>(até 10/01/2022)</small>
+                            R$ {COM_ALIMENTACAO / 2},00{" "}
+                            <small>(até 10/01/2022)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -157,7 +160,8 @@ export default function Step2({ setStep, formData, setFormData }) {
                         <div className="col-8">
                           <p className="ingresso-item-type">Inteira</p>
                           <p className="ingresso-item-price">
-                            R$ 290,00 <small>(até 10/01/2022)</small>
+                            R$ {COM_ALIMENTACAO},00{" "}
+                            <small>(até 10/01/2022)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
