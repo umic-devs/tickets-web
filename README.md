@@ -4,8 +4,8 @@
     <a href="https://app.netlify.com/sites/umic/deploys" alt="netlify status" >
         <img src="https://api.netlify.com/api/v1/badges/2670b9bc-dcc5-4317-8abc-e90718476e6f/deploy-status" />
     </a>
-    <a href="https://travis-ci.com/github/umic-labs/umic-web" alt="build status" >
-        <img src="https://travis-ci.com/umic-labs/umic-web.svg?branch=master" />
+    <a href="https://app.travis-ci.com/github/umic-labs/tickets-web" alt="build status" >
+        <img src="https://app.travis-ci.com/umic-labs/tickets-web.svg?branch=master" />
     </a>
     <a href="https://codeclimate.com/github/umic-labs/umic-web/maintainability" alt="maintainability"><img src="https://api.codeclimate.com/v1/badges/3d98356b849882583815/maintainability" /></a>
     <a href="https://www.gnu.org/licenses/gpl-3.0" alt="licence" >
