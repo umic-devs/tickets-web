@@ -86,7 +86,7 @@ export default function Footer({ className }) {
             </span>
           </div>
           <div className="col-12 col-md-7 col-xl-4">
-            <h5>Inscreva-se</h5>
+            {/*<h5>Inscreva-se</h5>
             <p>Receba novidades da UMIC no seu email.</p>
             <form>
               <div className="form-row">
@@ -105,7 +105,7 @@ export default function Footer({ className }) {
                   </button>
                 </div>
               </div>
-            </form>
+            </form>*/}
           </div>
         </div>
         {/*<div className="row justify-content-center">

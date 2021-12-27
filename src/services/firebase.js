@@ -23,11 +23,15 @@ const config_dev = {
   measurementId: process.env.REACT_APP_DEV_FIREBASE_MEASUREMENT_ID,
 };
 
+/*
 const config =
   !process.env.NODE_ENV || process.env.NODE_ENV === "development"
     ? config_dev
     : config_prod;
 firebase.initializeApp(config);
+*/
+
+firebase.initializeApp(config_prod);
 
 export default firebase;
 export const db = firebase.database();

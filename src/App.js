@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Conference from "./pages/Conference";
+import Admin from "./pages/Admin/index";
+import IngressosCOMIC from "./pages/IngressosCOMIC";
 
 export default function App() {
   useEffect(() => {
@@ -21,8 +22,8 @@ export default function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/conferencia-lideres" exact component={Conference} />
-        {/* <Route path="/comic" exact component={Comic} /> */}
+        <Route path="/admin" exact component={Admin} />
+        <Route path="/ingressos-comic-2022" exact component={IngressosCOMIC} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
