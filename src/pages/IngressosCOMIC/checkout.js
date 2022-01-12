@@ -16,11 +16,31 @@ export default function Checkout({
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  async function handleSubmit(params) {
+  async function handleSubmit({
+    cardNumber,
+    cardExpirationMonth,
+    cardExpirationYear,
+    cardSecurityCode,
+    cardHolderName,
+  }) {
     setIsLoading(true);
-    await sendCreditCardCharge(params)
+
+    const pedido = localStorage.getItem("pedido");
+    const DESCRIPTION = "Pagamento do pedido";
+
+    await sendCreditCardCharge({
+      referenceId: pedido,
+      description: DESCRIPTION,
+      value: formData.total,
+      cardNumber,
+      cardExpirationMonth,
+      cardExpirationYear,
+      cardSecurityCode,
+      cardHolderName,
+    })
       .then(() => setIsSuccess(true))
-      .catch(() => {
+      .catch((error) => console.log(error))
+      .finally(() => {
         setIsLoading(false);
       });
   }
@@ -48,15 +68,7 @@ export default function Checkout({
               </>
             ) : (
               <>
-                <p>
-                  <strong>
-                    A forma de pagamento escolhida é Cartão de Crédito.
-                  </strong>
-                </p>
-                <p>
-                  Um email com as instruções de pagamento será enviado para seu
-                  email ({formData.email}) em breve!
-                </p>
+                <h2>Dados do cartão</h2>
 
                 {!isSuccess ? (
                   <CreditCardForm

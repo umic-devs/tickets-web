@@ -1,171 +1,121 @@
-import React, { useState } from "react";
-import { FaCreditCard } from "react-icons/fa";
-import { sendCreditCardCharge } from "../services/pagseguro.service.js";
+import React from "react";
+import { FaCreditCard, FaLock } from "react-icons/fa";
+import { Spinner } from '../components'
+import { useForm } from "react-hook-form";
 
 export default function CreditCardForm({ formData, onSubmit, isLoading }) {
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardExpirationMonth, setCardExpirationMonth] = useState("");
-  const [cardExpirationYear, setCardExpirationYear] = useState("");
-  const [cardSecurityCode, setCardSecurityCode] = useState("");
-  const [cardHolderName, setCardHolderName] = useState("");
+  const { register, handleSubmit } = useForm();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const totalValue = composeCurrency(formData.total)
 
-    const pedido = localStorage.getItem("pedido");
-    const DESCRIPTION = "Pagamento do pedido";
+  return <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="row">
+      <div className="col-sm-6">
+        <div className="card">
 
-    onSubmit({
-      referenceId: pedido,
-      description: DESCRIPTION,
-      value: formData.total,
-      cardNumber,
-      cardExpirationMonth,
-      cardExpirationYear,
-      cardSecurityCode,
-      cardHolderName,
-    });
-  };
-
-  const resetForm = () => {
-    setCardNumber("");
-    setCardExpirationMonth("");
-    setCardExpirationYear("");
-    setCardSecurityCode("");
-    setCardHolderName("");
-  };
-
-  return !isLoading ? (
-    <form onSubmit={handleSubmit}>
-      <div className="row">
-        <div className="col-12">
-          <div className="mb-3">
-            <h2>Inscrição COMIC 2022</h2>
-            <h4>Dados de quem irá retirar o pedido</h4>
-            <p>
-              <strong>
-                Preencha os campos abaixo com as informações pessoais de quem
-                irá retirar o(s) ingresso(s)
-              </strong>
-            </p>
+          <div className="card-header text-right">
+            <small>compra segura</small> <FaLock />
           </div>
-        </div>
-      </div>
 
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="card">
-            <div className="card-header">
-              <strong>Cartão de Crédito</strong>
-              <small>Insira os detalhes do seu cartão</small>
-            </div>
-            <div className="card-body">
-              <div className="row">
-                <div className="col-sm-12">
-                  <div className="form-group">
-                    <label htmlFor="name">Nome</label>
-                    <input
-                      className="form-control"
-                      id="name"
-                      type="text"
-                      placeholder="Nome que está no cartão"
-                      value={cardHolderName}
-                      onChange={(event) =>
-                        setCardHolderName(event.target.value)
-                      }
-                    />
-                  </div>
+          <div className="card-body">
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="form-group">
+                  <label htmlFor="name">Nome</label>
+                  <input
+                    className="form-control"
+                    disabled={isLoading}
+                    id="name"
+                    type="text"
+                    placeholder="Nome que está no cartão"
+                    {...register("cardHolderName", { required: true })}
+                  />
                 </div>
               </div>
-              <div className="row">
-                <div className="col-sm-12">
-                  <div className="form-group">
-                    <label htmlFor="ccnumber">Número do Cartão</label>
-                    <div className="input-group">
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="0000 0000 0000 0000"
-                        autoComplete="email"
-                        value={cardNumber}
-                        onChange={(event) => setCardNumber(event.target.value)}
-                      />
-                      <div className="input-group-append">
-                        <span className="input-group-text">
-                          <FaCreditCard />
-                        </span>
-                      </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="form-group">
+                  <label htmlFor="ccnumber">Número do Cartão</label>
+                  <div className="input-group">
+                    <input
+                      className="form-control"
+                      disabled={isLoading}
+                      type="text"
+                      placeholder="0000 0000 0000 0000"
+                      {...register("cardNumber", { required: true })}
+                    />
+                    <div className="input-group-append">
+                      <span className="input-group-text">
+                        <FaCreditCard />
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="form-group col-sm-4">
-                  <label htmlFor="ccmonth">Mês</label>
+            </div>
+
+            <div className="row">
+              <div className="form-group col-sm-4">
+                <label htmlFor="ccmonth">Mês</label>
+                <input
+                  className="form-control"
+                  disabled={isLoading}
+                  id="ccmonth"
+                  type="text"
+                  placeholder="MM"
+                  {...register("cardExpirationMonth", { required: true })}
+                />
+              </div>
+
+              <div className="form-group col-sm-4">
+                <label htmlFor="ccyear">Ano</label>
+                <input
+                  className="form-control"
+                  disabled={isLoading}
+                  id="ccyear"
+                  type="text"
+                  placeholder="AAAA"
+                  {...register("cardExpirationYear", { required: true })}
+                />
+              </div>
+
+              <div className="col-sm-4">
+                <div className="form-group">
+                  <label htmlFor="cvv">CVV</label>
                   <input
                     className="form-control"
-                    id="ccmonth"
+                    disabled={isLoading}
+                    id="cvv"
                     type="text"
-                    placeholder="MM"
-                    value={cardExpirationMonth}
-                    onChange={(event) =>
-                      setCardExpirationMonth(event.target.value)
-                    }
+                    placeholder=""
+                    {...register("cardSecurityCode", { required: true })}
                   />
-                </div>
-                <div className="form-group col-sm-4">
-                  <label htmlFor="ccyear">Ano</label>
-                  <input
-                    className="form-control"
-                    id="ccyear"
-                    type="text"
-                    placeholder="AAAA"
-                    value={cardExpirationYear}
-                    onChange={(event) =>
-                      setCardExpirationYear(event.target.value)
-                    }
-                  />
-                </div>
-                <div className="col-sm-4">
-                  <div className="form-group">
-                    <label htmlFor="cvv">CVV/CVC</label>
-                    <input
-                      className="form-control"
-                      id="cvv"
-                      type="text"
-                      placeholder="123"
-                      value={cardSecurityCode}
-                      onChange={(event) =>
-                        setCardSecurityCode(event.target.value)
-                      }
-                    />
-                  </div>
                 </div>
               </div>
             </div>
-            <div className="card-footer">
-              <button
-                className="btn btn-sm btn-success float-right"
-                type="submit"
-              >
-                <i className="mdi mdi-gamepad-circle" />
-                Enviar
-              </button>
+          </div>
 
-              <button
-                className="btn btn-sm btn-danger"
-                type="button"
-                onClick={resetForm}
-              >
-                <i className="mdi mdi-lock-reset" />
-                Reset
-              </button>
-            </div>
+          <div className="card-footer">
+            <button
+              className="btn btn-lg btn-primary btn-block"
+              disabled={isLoading}
+              type="submit"
+            >
+              {
+                !isLoading
+                  ? `Finalizar pedido (${totalValue})`
+                  : <Spinner />
+              }
+            </button>
           </div>
         </div>
       </div>
-    </form>
-  ) : (
-    "carregando"
-  );
+    </div>
+  </form>
+}
+
+function composeCurrency(totalInCents) {
+  return (totalInCents / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 }
