@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import qrcode from "../../assets/images/comic/qrcode-pix.png";
+import { sendCreditCardCharge } from "../../services/pagseguro.service.js";
+import { CreditCardForm } from "../../components";
+import { set } from "react-hook-form";
 
 export default function Checkout({
   sent,
@@ -9,6 +12,19 @@ export default function Checkout({
   handleFormSubmit,
 }) {
   const pedido = localStorage.getItem("pedido");
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  async function handleSubmit(params) {
+    setIsLoading(true);
+    await sendCreditCardCharge(params)
+      .then(() => setIsSuccess(true))
+      .catch(() => {
+        setIsLoading(false);
+      });
+  }
+
   return (
     <React.Fragment>
       <div className="row justify-content-center text-justify">
@@ -41,6 +57,16 @@ export default function Checkout({
                   Um email com as instruções de pagamento será enviado para seu
                   email ({formData.email}) em breve!
                 </p>
+
+                {!isSuccess ? (
+                  <CreditCardForm
+                    formData={formData}
+                    onSubmit={handleSubmit}
+                    isLoading={isLoading}
+                  />
+                ) : (
+                  "Sucesso"
+                )}
               </>
             )}
           </div>
