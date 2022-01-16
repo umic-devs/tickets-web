@@ -1,7 +1,7 @@
 import React from "react";
 
-const SEM_ALIMENTACAO = 130;
-const COM_ALIMENTACAO = 260;
+const SEM_ALIMENTACAO = 150;
+const COM_ALIMENTACAO = 280;
 
 export default function Step2({ setStep, formData, setFormData }) {
   function getTotal() {
@@ -55,7 +55,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                           </p>
                           <p className="ingresso-item-price">
                             R$ {SEM_ALIMENTACAO / 2},00{" "}
-                            <small>(até 10/01/2022)</small>
+                            <small>(até 25/02)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -85,8 +85,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                         <div className="col-8">
                           <p className="ingresso-item-type">Inteira</p>
                           <p className="ingresso-item-price">
-                            R$ {SEM_ALIMENTACAO},00{" "}
-                            <small>(até 10/01/2022)</small>
+                            R$ {SEM_ALIMENTACAO},00 <small>(até 25/02)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -130,7 +129,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                           </p>
                           <p className="ingresso-item-price">
                             R$ {COM_ALIMENTACAO / 2},00{" "}
-                            <small>(até 10/01/2022)</small>
+                            <small>(até 05/02)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -160,8 +159,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                         <div className="col-8">
                           <p className="ingresso-item-type">Inteira</p>
                           <p className="ingresso-item-price">
-                            R$ {COM_ALIMENTACAO},00{" "}
-                            <small>(até 10/01/2022)</small>
+                            R$ {COM_ALIMENTACAO},00 <small>(até 05/02)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
