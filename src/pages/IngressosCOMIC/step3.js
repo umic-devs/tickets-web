@@ -207,7 +207,8 @@ export default function Step3({ setStep, formData, setFormData }) {
                       maxLength: 50,
                       validate: {
                         igreja_de_cristo: (value) =>
-                          "igreja de cristo" !== value.toLowerCase(),
+                          "igrejadecristo" !==
+                          value.replace(/\s/g, "").toLowerCase(),
                       },
                     })}
                   />
@@ -226,7 +227,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   )}
                   {errors.igreja?.type === "igreja_de_cristo" && (
                     <small className="text-danger">
-                      Qual Igreja de Cristo, abençoado(a)?
+                      De qual das Igrejas de Cristo você é?
                     </small>
                   )}
                 </div>

@@ -8,7 +8,7 @@ import {
 import { store } from "../../services/firebase";
 import { zeroFill } from "../../services/numbers.service";
 
-const Dashboard = () => {
+const Tickets = () => {
   const [data, setData] = useState([]);
 
   async function getPedidosFromFirebase(data) {
@@ -178,4 +178,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Tickets;

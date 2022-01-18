@@ -37,6 +37,9 @@ export default function IngressosCOMIC() {
 
     let ingressosRef = db.ref("COMIC2022");
 
+    const status =
+      data.formaPagamento === "pix" ? "PENDENTE" : "COBRANÇA PENDENTE";
+
     await ingressosRef
       .get(ingressosRef)
       .then(async (snapshot) => {
