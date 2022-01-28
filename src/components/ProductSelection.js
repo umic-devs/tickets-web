@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { convertCurrency, useDidMountEffect } from '../helpers'
 
-export default function ProductSelection({ onSelect, product }) {
-  const [amount, setAmount] = useState(0)
+export default function ProductSelection({ onSelect, product, defaultAmount }) {
+  const [amount, setAmount] = useState(defaultAmount)
 
   useDidMountEffect(() => {
     onSelect({ product, amount: Number(amount) })

@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../App";
 import { CartSummary, ProductSelection } from '../../components'
 import { ProductsService } from '../../services'
 
 export default function TicketsSelectionPage({ setStep, formData, setFormData }) {
   const products = ProductsService.fetchProducts()
-  const [cart, setCart] = useState([])
-
-  function updateCart(item) {
-    const nextCart = composeCart({ cart, item })
-    setCart(nextCart)
-  }
+  const { cart, updateCart } = useContext(CartContext)
 
   function handleNextStep() {
     setStep(3);
@@ -21,11 +17,11 @@ export default function TicketsSelectionPage({ setStep, formData, setFormData })
         <h1 className="display-4">Inscrição COMIC 2022</h1>
 
         <p className="lead">
-          Selecione quantos ingressos de cada tipo deseja pedir
+          Quantos ingressos de cada tipo deseja pedir?
         </p>
       </div>
 
-      <div className="row justify-content-between align-items-center mb-5">
+      <div className="row justify-content-between align-items-center mb-3">
         <div className="col-6 ">
           <button
             className="btn px-0 text-primary"
@@ -40,13 +36,18 @@ export default function TicketsSelectionPage({ setStep, formData, setFormData })
         <div className="col-8">
           <div>
             {
-              products.map((product) => (
-                <ProductSelection
-                  key={product.sku}
-                  product={product}
-                  onSelect={updateCart}
-                />
-              ))
+              products.map((product) => {
+                const defaultAmount = composeDefaultAmount({ cart, product })
+
+                return (
+                  <ProductSelection
+                    key={product.sku}
+                    product={product}
+                    defaultAmount={defaultAmount}
+                    onSelect={updateCart}
+                  />
+                )
+              })
             }
           </div>
         </div>
@@ -62,9 +63,7 @@ export default function TicketsSelectionPage({ setStep, formData, setFormData })
   );
 }
 
-function composeCart({ cart, item }) {
-  const nextCart = cart.filter(cartItem => cartItem.product.sku !== item.product.sku)
-  if(!item.amount) return nextCart
-
-  return [item, ...nextCart]
+function composeDefaultAmount({ cart, product }) {
+  const currentItem = cart.find((item) => item.product.sku === product.sku)
+  return currentItem?.amount || 0
 }
