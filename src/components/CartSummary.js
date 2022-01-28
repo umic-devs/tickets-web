@@ -1,7 +1,7 @@
 import React from 'react'
-import { convertCurrency } from '../functions'
+import { convertCurrency } from '../helpers'
 
-export default function CartSummary({ cart }) {
+export default function CartSummary({ cart, onNextStep }) {
   const valueTotal = composeTotal(cart)
   const amountItems = composeAmount(cart)
 
@@ -31,11 +31,23 @@ export default function CartSummary({ cart }) {
       </ul>
     
       {
-        !!amountItems && 
-        <h6 className="mt-3">
-          Total ({ amountItems } itens): { convertCurrency(valueTotal) }
-        </h6>
+        !!amountItems && (
+          <>
+            <h6 className="mt-3">
+              Total ({ amountItems } itens): { convertCurrency(valueTotal) }
+            </h6>
+            
+            <button
+              type="button"
+              className="btn btn-primary btn-block"
+              onClick={onNextStep}
+            >
+              Continuar
+            </button>
+          </>
+        )
       }
+
     </div>
   )
 }

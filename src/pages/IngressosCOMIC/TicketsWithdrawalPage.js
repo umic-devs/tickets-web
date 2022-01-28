@@ -2,7 +2,7 @@ import React from "react";
 import InputMask from "react-input-mask";
 import { useForm, Controller } from "react-hook-form";
 
-export default function Step3({ setStep, formData, setFormData }) {
+export default function withdrawal({ setStep, formData, setFormData }) {
   const {
     watch,
     control,
@@ -10,11 +10,11 @@ export default function Step3({ setStep, formData, setFormData }) {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const step3Data = JSON.parse(localStorage.getItem("step3Data") || "{}");
+  const withdrawalData = JSON.parse(localStorage.getItem("withdrawalData") || "{}");
 
   const onSubmit = (data) => {
     const newFormData = { ...formData, ...data };
-    localStorage.setItem("step3Data", JSON.stringify(newFormData));
+    localStorage.setItem("withdrawalData", JSON.stringify(newFormData));
     setFormData(newFormData);
     setStep(4);
   };
@@ -45,7 +45,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <input
                     className="form-control"
                     placeholder="Nome"
-                    defaultValue={step3Data.nome || ""}
+                    defaultValue={withdrawalData.nome || ""}
                     {...register("nome", {
                       required: true,
                       minLength: 2,
@@ -69,7 +69,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <input
                     className="form-control"
                     placeholder="Sobrenome"
-                    defaultValue={step3Data.sobrenome || ""}
+                    defaultValue={withdrawalData.sobrenome || ""}
                     {...register("sobrenome", {
                       required: true,
                       minLength: 2,
@@ -94,7 +94,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                     type="email"
                     className="form-control"
                     placeholder="exemplo@email.com"
-                    defaultValue={step3Data.email || ""}
+                    defaultValue={withdrawalData.email || ""}
                     {...register("email", {
                       required: true,
                       pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g,
@@ -115,7 +115,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                     type="email"
                     className="form-control"
                     placeholder="exemplo@email.com"
-                    defaultValue={step3Data.email_confirmacao || ""}
+                    defaultValue={withdrawalData.email_confirmacao || ""}
                     {...register("email_confirmacao", {
                       required: true,
                       pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g,
@@ -141,7 +141,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <Controller
                     name="cpf"
                     control={control}
-                    defaultValue={step3Data.cpf || ""}
+                    defaultValue={withdrawalData.cpf || ""}
                     rules={{
                       required: true,
                       pattern:
@@ -171,7 +171,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <Controller
                     name="telefone"
                     control={control}
-                    defaultValue={step3Data.telefone || ""}
+                    defaultValue={withdrawalData.telefone || ""}
                     rules={{
                       required: true,
                       pattern: /\([0-9]{2}\) [0-9]{5}-[0-9]{4}/g,
@@ -200,7 +200,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <input
                     className="form-control"
                     placeholder="Ex: Igreja de Cristo em Brasília"
-                    defaultValue={step3Data.igreja || ""}
+                    defaultValue={withdrawalData.igreja || ""}
                     {...register("igreja", {
                       required: true,
                       minLength: 2,
@@ -237,7 +237,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <input
                     className="form-control"
                     placeholder="Ex: Morrinhos/GO"
-                    defaultValue={step3Data.cidade || ""}
+                    defaultValue={withdrawalData.cidade || ""}
                     {...register("cidade", {
                       required: true,
                       minLength: 2,
@@ -261,7 +261,7 @@ export default function Step3({ setStep, formData, setFormData }) {
                   <Controller
                     name="formaPagamento"
                     control={control}
-                    defaultValue={step3Data.formaPagamento || ""}
+                    defaultValue={withdrawalData.formaPagamento || ""}
                     rules={{
                       required: true,
                     }}

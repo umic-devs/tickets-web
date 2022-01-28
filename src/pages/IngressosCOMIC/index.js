@@ -3,11 +3,11 @@ import { db, store } from "../../services/firebase";
 import { zeroFill } from "../../services/numbers.service";
 
 import Navbar from "../../components/Navbar";
-import Step1 from "./step1";
-import Step2 from "./step2";
-import Step3 from "./step3";
-import Step4 from "./step4";
-import Checkout from "./checkout";
+import TicketsTermsPage from "./TicketsTermsPage";
+import TicketsSelectionPage from "./TicketsSelectionPage";
+import TicketsWithdrawalPage from "./TicketsWithdrawalPage";
+import TicketsAtendeesPage from "./TicketsAtendeesPage";
+import TicketsCheckoutPage from "./TicketsCheckoutPage";
 
 export default function IngressosCOMIC() {
   const [step, setStep] = useState(1);
@@ -142,7 +142,7 @@ export default function IngressosCOMIC() {
               .commit()
               .then(async () => {
                 // TODO: pagSeguro
-                // localStorage.removeItem("step4Data"); // TODO: uncomment this line to clear localStorage
+                // localStorage.removeItem("atendeesData"); // TODO: uncomment this line to clear localStorage
                 localStorage.setItem("pedido", newPedidoName); // TODO: uncomment this line to clear localStorage
                 localStorage.setItem("forma_pagamento", data.formaPagamento); // TODO: uncomment this line to clear localStorage
                 // sendNewOrderMail(data); // TODO: send email
@@ -177,11 +177,11 @@ export default function IngressosCOMIC() {
       <Navbar />
       <section className="py-3">
         <div className="container">
-          {step === 1 && <Step1 setStep={setStep} />}
-          {step === 2 && <Step2 setStep={setStep} {...formDataProps} />}
-          {step === 3 && <Step3 setStep={setStep} {...formDataProps} />}
+          {step === 1 && <TicketsTermsPage setStep={setStep} />}
+          {step === 2 && <TicketsSelectionPage setStep={setStep} {...formDataProps} />}
+          {step === 3 && <TicketsWithdrawalPage setStep={setStep} {...formDataProps} />}
           {step === 4 && (
-            <Step4
+            <TicketsAtendeesPage
               sent={sent}
               setSent={setSent}
               setStep={setStep}
@@ -189,7 +189,7 @@ export default function IngressosCOMIC() {
               handleFormSubmit={handleFormSubmit}
             />
           )}
-          {step === 5 && <Checkout {...formDataProps} />}
+          {step === 5 && <TicketsCheckoutPage {...formDataProps} />}
         </div>
       </section>
     </React.Fragment>

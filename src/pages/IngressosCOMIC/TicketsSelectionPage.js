@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CartSummary, ProductSelection } from '../../components'
 import { ProductsService } from '../../services'
 
-export default function Step2({ setStep, formData, setFormData }) {
+export default function TicketsSelectionPage({ setStep, formData, setFormData }) {
   const products = ProductsService.fetchProducts()
   const [cart, setCart] = useState([])
 
@@ -11,11 +11,9 @@ export default function Step2({ setStep, formData, setFormData }) {
     setCart(nextCart)
   }
 
-  const onSubmit = () => {
-    const total = 0
-    setFormData({ ...formData, total });
+  function handleNextStep() {
     setStep(3);
-  };
+  }
 
   return (
     <>
@@ -54,7 +52,10 @@ export default function Step2({ setStep, formData, setFormData }) {
         </div>
 
         <div className="col-4">
-          <CartSummary cart={cart} />
+          <CartSummary
+            cart={cart}
+            onNextStep={handleNextStep}
+          />
         </div>
       </div>
     </>

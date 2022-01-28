@@ -2,7 +2,7 @@ import React from "react";
 import InputMask from "react-input-mask";
 import { useForm, Controller } from "react-hook-form";
 
-export default function Step4({
+export default function TicketsAtendeesPage({
   sent,
   setStep,
   formData,
@@ -15,11 +15,11 @@ export default function Step4({
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const step4Data = JSON.parse(localStorage.getItem("step4Data") || "{}");
+  const atendeesData = JSON.parse(localStorage.getItem("atendeesData") || "{}");
 
   const onSubmit = (data) => {
     const newFormData = { ...formData, ...data };
-    localStorage.setItem("step4Data", JSON.stringify(newFormData));
+    localStorage.setItem("atendeesData", JSON.stringify(newFormData));
     setFormData(newFormData);
     handleFormSubmit(newFormData);
   };
@@ -49,7 +49,7 @@ export default function Step4({
               <input
                 className="form-control"
                 placeholder="Nome"
-                defaultValue={step4Data[`nome_${tipo}_${i}`] || ""}
+                defaultValue={atendeesData[`nome_${tipo}_${i}`] || ""}
                 {...register(`nome_${tipo}_${i}`, {
                   required: true,
                   minLength: 2,
@@ -73,7 +73,7 @@ export default function Step4({
               <input
                 className="form-control"
                 placeholder="Sobrenome"
-                defaultValue={step4Data[`sobrenome_${tipo}_${i}`] || ""}
+                defaultValue={atendeesData[`sobrenome_${tipo}_${i}`] || ""}
                 {...register(`sobrenome_${tipo}_${i}`, {
                   required: true,
                   minLength: 2,
@@ -97,7 +97,7 @@ export default function Step4({
               <Controller
                 name={`telefone_${tipo}_${i}`}
                 control={control}
-                defaultValue={step4Data[`telefone_${tipo}_${i}`] || ""}
+                defaultValue={atendeesData[`telefone_${tipo}_${i}`] || ""}
                 rules={{
                   required: true,
                   pattern: /\([0-9]{2}\) [0-9]{5}-[0-9]{4}/g,
@@ -127,7 +127,7 @@ export default function Step4({
                 type={`email_${tipo}_${i}`}
                 className="form-control"
                 placeholder="exemplo@email.com"
-                defaultValue={step4Data[`email_${tipo}_${i}`] || ""}
+                defaultValue={atendeesData[`email_${tipo}_${i}`] || ""}
                 {...register(`email_${tipo}_${i}`, {
                   required: true,
                   pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g,

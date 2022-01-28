@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Step1({ setStep }) {
+export default function TicketsTermsPage({ setStep }) {
   return (
     <React.Fragment>
       <div className="row justify-content-center text-justify">

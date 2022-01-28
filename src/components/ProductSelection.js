@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { convertCurrency, useDidMountEffect } from '../functions'
+import { convertCurrency, useDidMountEffect } from '../helpers'
 
 export default function ProductSelection({ onSelect, product }) {
   const [amount, setAmount] = useState(0)

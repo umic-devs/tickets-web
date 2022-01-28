@@ -4,7 +4,7 @@ import { sendCreditCardCharge } from "../../services/pagseguro.service.js";
 import { CreditCardForm } from "../../components";
 import { set } from "react-hook-form";
 
-export default function Checkout({
+export default function TicketsCheckoutPage({
   sent,
   setStep,
   formData,
