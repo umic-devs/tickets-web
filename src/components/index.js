@@ -1,6 +1,13 @@
-import CreditCardForm from "./CreditCardForm";
-import Spinner from "./Spinner";
-import CartSummary from "./CartSummary";
-import ProductSelection from "./ProductSelection";
+import AttendeeForm from "./AttendeeForm"
+import CartSummary from "./CartSummary"
+import CreditCardForm from "./CreditCardForm"
+import ProductSelection from "./ProductSelection"
+import Spinner from "./Spinner"
 
-export { CreditCardForm, Spinner, CartSummary, ProductSelection };
+export {
+  AttendeeForm,
+  CartSummary,
+  CreditCardForm,
+  ProductSelection,
+  Spinner,
+}

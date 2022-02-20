@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import InputMask from "react-input-mask";
 import { useForm, Controller } from "react-hook-form";
+import { AttendeeForm } from "../../components";
+import { CartContext } from "../../App";
+import { useDidMountEffect } from "../../helpers";
 
 export default function TicketsAtendeesPage({
   sent,
@@ -15,137 +18,22 @@ export default function TicketsAtendeesPage({
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const { cart, updateCart } = useContext(CartContext);
+
+  const [attendees, setAttendees] = useState([])
+
+  useDidMountEffect(() => {
+    console.log(attendees);
+  }, [attendees]);
+
   const atendeesData = JSON.parse(localStorage.getItem("atendeesData") || "{}");
 
   const onSubmit = (data) => {
-    const newFormData = { ...formData, ...data };
-    localStorage.setItem("atendeesData", JSON.stringify(newFormData));
-    setFormData(newFormData);
-    handleFormSubmit(newFormData);
+    // const newFormData = { ...formData, ...data };
+    // localStorage.setItem("atendeesData", JSON.stringify(newFormData));
+    // setFormData(newFormData);
+    // handleFormSubmit(newFormData);
   };
-
-  const ingressosData = {
-    sem_int: [formData.qtd_sem_alimentacao, "Sem Alimentação (Inteira)"],
-    sem_meia: [formData.qtd_sem_alimentacao_meia, "Sem Alimentação (Meia)"],
-    com_int: [formData.qtd_com_alimentacao, "Completo (Inteira)"],
-    com_meia: [formData.qtd_com_alimentacao_meia, "Completo (Meia)"],
-  };
-
-  function renderCamposIngressos(tipo) {
-    let ingressos = [];
-    const qtd = ingressosData[tipo][0];
-
-    for (let i = 1; i <= qtd; i++) {
-      ingressos.push(
-        <React.Fragment>
-          <div className="col-12 mt-2">
-            <h5>
-              Ingresso {ingressosData[tipo][1]} {i}
-            </h5>
-          </div>
-          <div className="col-12 col-md-6">
-            <div className="form-group mb-1">
-              <label className="mb-0">Nome *</label>
-              <input
-                className="form-control"
-                placeholder="Nome"
-                defaultValue={atendeesData[`nome_${tipo}_${i}`] || ""}
-                {...register(`nome_${tipo}_${i}`, {
-                  required: true,
-                  minLength: 2,
-                  maxLength: 26,
-                })}
-              />
-              {errors[`nome_${tipo}_${i}`]?.type === "required" && (
-                <small>Nome é obrigatório</small>
-              )}
-              {errors[`nome_${tipo}_${i}`]?.type === "minLength" && (
-                <small>O nome deve ter pelo menos 2 caracteres</small>
-              )}
-              {errors[`nome_${tipo}_${i}`]?.type === "maxLength" && (
-                <small>O nome deve ter menos que 26 caracteres</small>
-              )}
-            </div>
-          </div>
-          <div className="col-12 col-md-6">
-            <div className="form-group mb-1">
-              <label className="mb-0">Sobrenome *</label>
-              <input
-                className="form-control"
-                placeholder="Sobrenome"
-                defaultValue={atendeesData[`sobrenome_${tipo}_${i}`] || ""}
-                {...register(`sobrenome_${tipo}_${i}`, {
-                  required: true,
-                  minLength: 2,
-                  maxLength: 26,
-                })}
-              />
-              {errors[`sobrenome_${tipo}_${i}`]?.type === "required" && (
-                <small>Sobrenome é obrigatório</small>
-              )}
-              {errors[`sobrenome_${tipo}_${i}`]?.type === "minLength" && (
-                <small>O sobrenome deve ter pelo menos 2 caracteres</small>
-              )}
-              {errors[`sobrenome_${tipo}_${i}`]?.type === "maxLength" && (
-                <small>O sobrenome deve ter menos que 26 caracteres</small>
-              )}
-            </div>
-          </div>
-          <div className="col-12 col-md-6">
-            <div className="form-group mb-1">
-              <label className="mb-0">WhatsApp *</label>
-              <Controller
-                name={`telefone_${tipo}_${i}`}
-                control={control}
-                defaultValue={atendeesData[`telefone_${tipo}_${i}`] || ""}
-                rules={{
-                  required: true,
-                  pattern: /\([0-9]{2}\) [0-9]{5}-[0-9]{4}/g,
-                }}
-                render={({ field }) => (
-                  <InputMask
-                    {...field}
-                    type="tel"
-                    className="form-control"
-                    mask="(99) 99999-9999"
-                    placeholder="(__) _____-____"
-                  />
-                )}
-              />
-              {errors[`telefone_${tipo}_${i}`]?.type === "required" && (
-                <small>Telefone é obrigatório</small>
-              )}
-              {errors[`telefone_${tipo}_${i}`]?.type === "pattern" && (
-                <small>Telefone inválido</small>
-              )}
-            </div>
-          </div>
-          <div className="col-12 col-md-6">
-            <div className="form-group mb-1">
-              <label className="mb-0">Email</label>
-              <input
-                type={`email_${tipo}_${i}`}
-                className="form-control"
-                placeholder="exemplo@email.com"
-                defaultValue={atendeesData[`email_${tipo}_${i}`] || ""}
-                {...register(`email_${tipo}_${i}`, {
-                  required: true,
-                  pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/g,
-                })}
-              />
-              {errors[`email_${tipo}_${i}`]?.type === "required" && (
-                <small>Email é obrigatório</small>
-              )}
-              {errors[`email_${tipo}_${i}`]?.type === "pattern" && (
-                <small>O email deve estar no formato correto</small>
-              )}
-            </div>
-          </div>
-        </React.Fragment>
-      );
-    }
-    return ingressos;
-  }
 
   return (
     <React.Fragment>
@@ -166,12 +54,27 @@ export default function TicketsAtendeesPage({
                 </div>
               </div>
             </div>
+
             <div className="row mb-3">
-              {renderCamposIngressos("sem_meia")}
-              {renderCamposIngressos("sem_int")}
-              {renderCamposIngressos("com_meia")}
-              {renderCamposIngressos("com_int")}
+
+              {cart.map((item, index) => (
+                <div key={index}>
+                  {Array.from({ length: item.amount }).map((j, i) => (
+                    <AttendeeForm
+                      key={i}
+                      index={i}
+                      product={item.product}
+                      onChange={(attendee) => 
+                        setAttendees(composeAttendees(attendees, attendee))
+                      }
+                    />
+                  ))}
+                </div>
+                // return <AttendeeForm key={index} product={item.product} />
+              ))}
+
             </div>
+
             <div className="row justify-content-between align-items-center">
               <div className="col-4 col-md-3">
                 <button
@@ -199,3 +102,11 @@ export default function TicketsAtendeesPage({
     </React.Fragment>
   );
 }
+
+const composeAttendees = (attendees, attendee) => {
+  const nextAttendees = attendees.filter(
+    (nextAttendee) => nextAttendee.index !== attendee.index
+  );
+
+  return [attendee, ...nextAttendees];
+};
