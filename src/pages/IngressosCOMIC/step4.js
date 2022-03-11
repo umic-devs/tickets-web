@@ -25,10 +25,10 @@ export default function Step4({
   };
 
   const ingressosData = {
-    sem_int: [formData.qtd_sem_alimentacao, "Sem Alimentação (Inteira)"],
-    sem_meia: [formData.qtd_sem_alimentacao_meia, "Sem Alimentação (Meia)"],
-    com_int: [formData.qtd_com_alimentacao, "Completo (Inteira)"],
-    com_meia: [formData.qtd_com_alimentacao_meia, "Completo (Meia)"],
+    sem_int: [formData.qtd_sem_alimentacao, "Entrada nos Cultos (Inteira)"],
+    sem_meia: [formData.qtd_sem_alimentacao_meia, "Entrada nos Cultos (Meia)"],
+    com_int: [formData.qtd_com_alimentacao, "Inscrição Completa (Inteira)"],
+    com_meia: [formData.qtd_com_alimentacao_meia, "Inscrição Completa (Meia)"],
   };
 
   function renderCamposIngressos(tipo) {
@@ -40,7 +40,7 @@ export default function Step4({
         <React.Fragment>
           <div className="col-12 mt-2">
             <h5>
-              Ingresso {ingressosData[tipo][1]} {i}
+              {ingressosData[tipo][1]} {i}
             </h5>
           </div>
           <div className="col-12 col-md-6">

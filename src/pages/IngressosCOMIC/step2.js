@@ -41,10 +41,10 @@ export default function Step2({ setStep, formData, setFormData }) {
               <div className="row">
                 <div className="col-12 my-1">
                   <p className="ingresso-item-title mb-0">
-                    INGRESSO SEM ALIMENTAÇÃO
+                    ENTRADA NOS CULTOS
                   </p>
                   <small className="mb-2" style={{ lineHeight: "1rem" }}>
-                    Inclui entrada + hospedagem em escola
+                    Inclui apenas entrada nos cultos
                   </small>
                   <div className="row">
                     <div className="col-12 my-1">
@@ -115,10 +115,10 @@ export default function Step2({ setStep, formData, setFormData }) {
                 <div className="decoration-line"></div>
                 <div className="col-12 my-1">
                   <p className="ingresso-item-title mb-0">
-                    INGRESSO COM ALIMENTAÇÃO
+                    INSCRIÇÃO COMPLETA
                   </p>
                   <small className="mb-2" style={{ lineHeight: "1rem" }}>
-                    Inclui entrada + hospedagem em escola + alimentação
+                    Inclui entrada + alojamento + alimentação
                   </small>
                   <div className="row">
                     <div className="col-12 my-1">
@@ -194,8 +194,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                 <>
                   <p className="mb-0">
                     <small>
-                      {formData.qtd_sem_alimentacao_meia}x Ingresso Sem
-                      Alimentação (Meia)
+                      {formData.qtd_sem_alimentacao_meia}x Entrada nos Cultos (Meia)
                     </small>
                   </p>
                   <p className="mb-1">
@@ -212,7 +211,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                 <>
                   <p className="mb-0">
                     <small>
-                      {formData?.qtd_sem_alimentacao}x Ingresso Sem Alimentação
+                      {formData?.qtd_sem_alimentacao}x Entrada nos Cultos
                       (Inteira)
                     </small>
                   </p>
@@ -228,8 +227,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                 <>
                   <p className="mb-0">
                     <small>
-                      {formData?.qtd_com_alimentacao_meia}x Ingresso Com
-                      Alimentação (Meia)
+                      {formData?.qtd_com_alimentacao_meia}x Inscrição Completa (Meia)
                     </small>
                   </p>
                   <p className="mb-1">
@@ -246,7 +244,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                 <>
                   <p className="mb-0">
                     <small>
-                      {formData?.qtd_com_alimentacao}x Ingresso Com Alimentação
+                      {formData?.qtd_com_alimentacao}x Inscrição Completa
                       (Inteira)
                     </small>
                   </p>
