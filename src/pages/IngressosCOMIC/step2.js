@@ -1,7 +1,7 @@
 import React from "react";
 
-const SEM_ALIMENTACAO = 150;
-const COM_ALIMENTACAO = 280;
+const SEM_ALIMENTACAO = 80;
+const COM_ALIMENTACAO = 250;
 
 export default function Step2({ setStep, formData, setFormData }) {
   function getTotal() {

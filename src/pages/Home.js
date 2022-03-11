@@ -25,12 +25,12 @@ export default function Home() {
               <div className="col-12 col-lg-4">
                 <div className="carousel-text-container h-100 d-flex flex-column">
                   <h6 className="text-warning mb-2">
-                    26 de Fevereiro a 1º de Março, 2022
+                    22 a 24 de Abril, 2022
                   </h6>
                   <h1 className="font-weight-bolder mb-1">VOCAÇÃO</h1>
                   <h5 className="mb-3">COMIC 2022</h5>
                   <h6 className="text-muted font-weight-lighter">
-                    Morrinhos, GO
+                    Igreja de Cristo Vida Nova - Anápolis, GO
                   </h6>
                   <button
                     className="btn btn-conference mt-auto"
