@@ -2,6 +2,8 @@ import React from "react";
 
 const SEM_ALIMENTACAO = 80;
 const COM_ALIMENTACAO = 250;
+const COM_ALIMENTACAO_5 = 370;
+const COM_ALIMENTACAO_8 = 320;
 
 export default function Step2({ setStep, formData, setFormData }) {
   function getTotal() {
@@ -9,7 +11,11 @@ export default function Step2({ setStep, formData, setFormData }) {
       formData?.qtd_sem_alimentacao * SEM_ALIMENTACAO +
       (formData?.qtd_sem_alimentacao_meia * SEM_ALIMENTACAO) / 2 +
       formData?.qtd_com_alimentacao * COM_ALIMENTACAO +
-      (formData?.qtd_com_alimentacao_meia * COM_ALIMENTACAO) / 2
+      (formData?.qtd_com_alimentacao_meia * COM_ALIMENTACAO) / 2 +
+      formData?.qtd_com_alimentacao_5 * COM_ALIMENTACAO_5 +
+      (formData?.qtd_com_alimentacao_5_meia * COM_ALIMENTACAO_5) / 2 +
+      formData?.qtd_com_alimentacao_8 * COM_ALIMENTACAO_8 +
+      (formData?.qtd_com_alimentacao_8_meia * COM_ALIMENTACAO_8) / 2
     );
   }
 
@@ -55,7 +61,6 @@ export default function Step2({ setStep, formData, setFormData }) {
                           </p>
                           <p className="ingresso-item-price">
                             R$ {SEM_ALIMENTACAO / 2},00{" "}
-                            <small>(até 25/02)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -85,7 +90,7 @@ export default function Step2({ setStep, formData, setFormData }) {
                         <div className="col-8">
                           <p className="ingresso-item-type">Inteira</p>
                           <p className="ingresso-item-price">
-                            R$ {SEM_ALIMENTACAO},00 <small>(até 25/02)</small>
+                            R$ {SEM_ALIMENTACAO},00
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -125,11 +130,10 @@ export default function Step2({ setStep, formData, setFormData }) {
                       <div className="row">
                         <div className="col-8">
                           <p className="ingresso-item-type">
-                            Meia <small>(Entre 5 e 12 anos incompletos)</small>
+                            Meia (Alojamento em salas de aula)<small>(Entre 5 e 12 anos incompletos)</small>
                           </p>
                           <p className="ingresso-item-price">
                             R$ {COM_ALIMENTACAO / 2},00{" "}
-                            <small>(até 05/02)</small>
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -154,12 +158,12 @@ export default function Step2({ setStep, formData, setFormData }) {
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 my-1">
+                    <div className="col-12 my-1 mb-3">
                       <div className="row">
                         <div className="col-8">
-                          <p className="ingresso-item-type">Inteira</p>
+                          <p className="ingresso-item-type">Inteira (Alojamento em salas de aula)</p>
                           <p className="ingresso-item-price">
-                            R$ {COM_ALIMENTACAO},00 <small>(até 05/02)</small>
+                            R$ {COM_ALIMENTACAO},00
                           </p>
                         </div>
                         <div className="col-4 my-auto">
@@ -177,6 +181,131 @@ export default function Step2({ setStep, formData, setFormData }) {
                               .fill(1)
                               .map((_, index) => (
                                 <option key={`com_${index}`} value={index}>
+                                  {index}
+                                </option>
+                              ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 my-1">
+                      <div className="row">
+                        <div className="col-8">
+                          <p className="ingresso-item-type">
+                            Meia (Apartamento 5 pessoas)<small>(Entre 5 e 12 anos incompletos)</small>
+                          </p>
+                          <p className="ingresso-item-price">
+                            R$ {COM_ALIMENTACAO / 2},00{" "}
+                          </p>
+                        </div>
+                        <div className="col-4 my-auto">
+                          <select
+                            className="form-control form-control-lg"
+                            value={formData.qtd_com_alimentacao_5_meia}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                qtd_com_alimentacao_5_meia: e.target.value,
+                              })
+                            }
+                          >
+                            {Array(21)
+                              .fill(1)
+                              .map((_, index) => (
+                                <option key={`com_${index}_5_meia`} value={index}>
+                                  {index}
+                                </option>
+                              ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 my-1 mb-3">
+                      <div className="row">
+                        <div className="col-8">
+                          <p className="ingresso-item-type">Inteira (Apartamento 5 pessoas)</p>
+                          <p className="ingresso-item-price">
+                            R$ {COM_ALIMENTACAO_5},00
+                          </p>
+                        </div>
+                        <div className="col-4 my-auto">
+                          <select
+                            className="form-control form-control-lg"
+                            value={formData.qtd_com_alimentacao_5}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                qtd_com_alimentacao_5: e.target.value,
+                              })
+                            }
+                          >
+                            {Array(21)
+                              .fill(1)
+                              .map((_, index) => (
+                                <option key={`com_${index}_5`} value={index}>
+                                  {index}
+                                </option>
+                              ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-12 my-1">
+                      <div className="row">
+                        <div className="col-8">
+                          <p className="ingresso-item-type">
+                            Meia (Apartamento 8 pessoas)<small>(Entre 5 e 12 anos incompletos)</small>
+                          </p>
+                          <p className="ingresso-item-price">
+                            R$ {COM_ALIMENTACAO_8 / 2},00{" "}
+                          </p>
+                        </div>
+                        <div className="col-4 my-auto">
+                          <select
+                            className="form-control form-control-lg"
+                            value={formData.qtd_com_alimentacao_8_meia}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                qtd_com_alimentacao_8_meia: e.target.value,
+                              })
+                            }
+                          >
+                            {Array(21)
+                              .fill(1)
+                              .map((_, index) => (
+                                <option key={`com_${index}_8_meia`} value={index}>
+                                  {index}
+                                </option>
+                              ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-12 my-1">
+                      <div className="row">
+                        <div className="col-8">
+                          <p className="ingresso-item-type">Inteira (Apartamento 8 pessoas)</p>
+                          <p className="ingresso-item-price">
+                            R$ {COM_ALIMENTACAO_8},00
+                          </p>
+                        </div>
+                        <div className="col-4 my-auto">
+                          <select
+                            className="form-control form-control-lg"
+                            value={formData.qtd_com_alimentacao_8}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                qtd_com_alimentacao_8: e.target.value,
+                              })
+                            }
+                          >
+                            {Array(21)
+                              .fill(1)
+                              .map((_, index) => (
+                                <option key={`com_${index}_8`} value={index}>
                                   {index}
                                 </option>
                               ))}
@@ -251,6 +380,70 @@ export default function Step2({ setStep, formData, setFormData }) {
                   <p className="mb-1">
                     <small>
                       R$ {formData.qtd_com_alimentacao * COM_ALIMENTACAO},00
+                    </small>
+                  </p>
+                </>
+              )}
+              {formData?.qtd_com_alimentacao_5_meia > 0 && (
+                <>
+                  <p className="mb-0">
+                    <small>
+                      {formData?.qtd_com_alimentacao_5_meia}x Inscrição Completa (Meia)
+                    </small>
+                  </p>
+                  <p className="mb-1">
+                    <small>
+                      R${" "}
+                      {(formData.qtd_com_alimentacao_5_meia * COM_ALIMENTACAO_5) /
+                        2}
+                      ,00
+                    </small>
+                  </p>
+                </>
+              )}
+              {formData?.qtd_com_alimentacao_5 > 0 && (
+                <>
+                  <p className="mb-0">
+                    <small>
+                      {formData?.qtd_com_alimentacao_5}x Inscrição Completa
+                      (Inteira)
+                    </small>
+                  </p>
+                  <p className="mb-1">
+                    <small>
+                      R$ {formData.qtd_com_alimentacao_5 * COM_ALIMENTACAO_5},00
+                    </small>
+                  </p>
+                </>
+              )}
+              {formData?.qtd_com_alimentacao_8_meia > 0 && (
+                <>
+                  <p className="mb-0">
+                    <small>
+                      {formData?.qtd_com_alimentacao_8_meia}x Inscrição Completa (Meia)
+                    </small>
+                  </p>
+                  <p className="mb-1">
+                    <small>
+                      R${" "}
+                      {(formData.qtd_com_alimentacao_8_meia * COM_ALIMENTACAO_8) /
+                        2}
+                      ,00
+                    </small>
+                  </p>
+                </>
+              )}
+              {formData?.qtd_com_alimentacao_8 > 0 && (
+                <>
+                  <p className="mb-0">
+                    <small>
+                      {formData?.qtd_com_alimentacao_8}x Inscrição Completa
+                      (Inteira)
+                    </small>
+                  </p>
+                  <p className="mb-1">
+                    <small>
+                      R$ {formData.qtd_com_alimentacao_8 * COM_ALIMENTACAO_8},00
                     </small>
                   </p>
                 </>

@@ -17,6 +17,10 @@ export default function IngressosCOMIC() {
     qtd_sem_alimentacao_meia: 0,
     qtd_com_alimentacao: 0,
     qtd_com_alimentacao_meia: 0,
+    qtd_com_alimentacao_5: 0,
+    qtd_com_alimentacao_5_meia: 0,
+    qtd_com_alimentacao_8: 0,
+    qtd_com_alimentacao_8_meia: 0,
   });
   const formDataProps = {
     formData: formData,
@@ -67,6 +71,10 @@ export default function IngressosCOMIC() {
           qtd_ingressos: {
             com_int: data.qtd_com_alimentacao,
             com_meia: data.qtd_com_alimentacao_meia,
+            com_int_5: data.qtd_com_alimentacao_5,
+            com_meia_5: data.qtd_com_alimentacao_5_meia,
+            com_int_8: data.qtd_com_alimentacao_8,
+            com_meia_8: data.qtd_com_alimentacao_8_meia,
             sem_int: data.qtd_sem_alimentacao,
             sem_meia: data.qtd_sem_alimentacao_meia,
           },
@@ -129,6 +137,62 @@ export default function IngressosCOMIC() {
           batch.set(
             newIngressoRef,
             getIngressosData(data, "com_int", i + 1, newIngressoID)
+          );
+        }
+        // Completo 5 (Meia)
+        for (var i = 0; i < formData.qtd_com_alimentacao_5_meia; i++) {
+          newIngressoID++;
+          let newIngressoName = `I${zeroFill(newIngressoID, 4)}`;
+
+          let newIngressoRef = pedidoRef
+            .collection("INGRESSOS")
+            .doc(newIngressoName);
+
+          batch.set(
+            newIngressoRef,
+            getIngressosData(data, "com_meia_5", i + 1, newIngressoID)
+          );
+        }
+        // Completo 5 (Inteira)
+        for (var i = 0; i < formData.qtd_com_alimentacao_5; i++) {
+          newIngressoID++;
+          let newIngressoName = `I${zeroFill(newIngressoID, 4)}`;
+
+          let newIngressoRef = pedidoRef
+            .collection("INGRESSOS")
+            .doc(newIngressoName);
+
+          batch.set(
+            newIngressoRef,
+            getIngressosData(data, "com_int_5", i + 1, newIngressoID)
+          );
+        }
+        // Completo 8 (Meia)
+        for (var i = 0; i < formData.qtd_com_alimentacao_8_meia; i++) {
+          newIngressoID++;
+          let newIngressoName = `I${zeroFill(newIngressoID, 4)}`;
+
+          let newIngressoRef = pedidoRef
+            .collection("INGRESSOS")
+            .doc(newIngressoName);
+
+          batch.set(
+            newIngressoRef,
+            getIngressosData(data, "com_meia_8", i + 1, newIngressoID)
+          );
+        }
+        // Completo 8 (Inteira)
+        for (var i = 0; i < formData.qtd_com_alimentacao_8; i++) {
+          newIngressoID++;
+          let newIngressoName = `I${zeroFill(newIngressoID, 4)}`;
+
+          let newIngressoRef = pedidoRef
+            .collection("INGRESSOS")
+            .doc(newIngressoName);
+
+          batch.set(
+            newIngressoRef,
+            getIngressosData(data, "com_int_8", i + 1, newIngressoID)
           );
         }
 

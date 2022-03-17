@@ -27,8 +27,12 @@ export default function Step4({
   const ingressosData = {
     sem_int: [formData.qtd_sem_alimentacao, "Entrada nos Cultos (Inteira)"],
     sem_meia: [formData.qtd_sem_alimentacao_meia, "Entrada nos Cultos (Meia)"],
-    com_int: [formData.qtd_com_alimentacao, "Inscrição Completa (Inteira)"],
-    com_meia: [formData.qtd_com_alimentacao_meia, "Inscrição Completa (Meia)"],
+    com_int: [formData.qtd_com_alimentacao, "Completa Alojamento (Inteira)"],
+    com_meia: [formData.qtd_com_alimentacao_meia, "Completa Alojamento (Meia)"],
+    com_int_5: [formData.qtd_com_alimentacao_5, "Completa Apartamento 5 pessoas (Inteira)"],
+    com_meia_5: [formData.qtd_com_alimentacao_5_meia, "Completa Apartamento 5 pessoas (Meia)"],
+    com_int_8: [formData.qtd_com_alimentacao_8, "Completa Apartamento 8 pessoas (Inteira)"],
+    com_meia_8: [formData.qtd_com_alimentacao_8_meia, "Completa Apartamento 8 pessoas (Meia)"],
   };
 
   function renderCamposIngressos(tipo) {
@@ -171,6 +175,10 @@ export default function Step4({
               {renderCamposIngressos("sem_int")}
               {renderCamposIngressos("com_meia")}
               {renderCamposIngressos("com_int")}
+              {renderCamposIngressos("com_meia_5")}
+              {renderCamposIngressos("com_int_5")}
+              {renderCamposIngressos("com_meia_8")}
+              {renderCamposIngressos("com_int_8")}
             </div>
             <div className="row justify-content-between align-items-center">
               <div className="col-4 col-md-3">
