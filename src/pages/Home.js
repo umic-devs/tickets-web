@@ -32,12 +32,9 @@ export default function Home() {
                   <h6 className="text-muted font-weight-lighter">
                     Igreja de Cristo Vida Nova - Anápolis, GO
                   </h6>
-                  <button
-                    className="btn btn-conference mt-auto"
-                    onClick={handleButtonClick}
-                  >
-                    Comprar ingressos
-                  </button>
+                  <h5 className="text-warning mt-auto text-center">
+                    Inscrições pelo site encerradas. Dísponível apenas na bilheteria do evento.
+                  </h5>
                 </div>
               </div>
             </div>
