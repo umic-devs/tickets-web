@@ -60,6 +60,7 @@ const Dashboard = () => {
 
   const getList = () => {
     return data.map((item, index) => {
+      if (item.status !== "CANCELADO"){
       return (
         <tr
           key={index}
@@ -96,6 +97,7 @@ const Dashboard = () => {
           </td>
         </tr>
       );
+      }
     });
   };
 
