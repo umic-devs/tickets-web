@@ -4,6 +4,7 @@ import { zeroFill } from "../../services/numbers.service";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
+  const [showCancelled, setShowCancelled] = useState(false);
 
   async function getPedidosFromFirebase(data) {
     const pedidos = store.collection("COMIC2022");
@@ -103,6 +104,17 @@ const Dashboard = () => {
 
   return (
     <div>
+      <div>
+        <label>
+          Mostrar cancelados
+          <input
+            name="showCancelled"
+            type="checkbox"
+            checked={showCancelled}
+            onChange={() => setShowCancelled(!showCancelled)}
+          />
+        </label>
+      </div>
       <table>
         <thead>
           <tr>
