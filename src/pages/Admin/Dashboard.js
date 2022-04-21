@@ -61,7 +61,7 @@ const Dashboard = () => {
 
   const getList = () => {
     return data.map((item, index) => {
-      if (!showCancelled && item.status !== "CANCELADO"){
+      if (!showCancelled && item.status === "CANCELADO"){
         return null
       } else {
       return (
