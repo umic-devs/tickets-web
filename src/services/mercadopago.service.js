@@ -2,6 +2,24 @@ import axios from "axios";
 
 import ticketOptions from "consts/ticketOptions"
 
+const getNormal = (qtd) => qtd > 0 ? {
+    id: "COMIC24-1lote-normal",
+    title: ticketOptions[0].name,
+    category_id: "tickets",
+    quantity: qtd,
+    currency_id: "BRL",
+    unit_price: ticketOptions[0].price
+} : {}
+
+const getChild = (qtd) => qtd > 0 ? {
+    "id": "COMIC24-1lote-child",
+    "title": ticketOptions[1].name,
+    "category_id": "tickets",
+    "quantity": qtd,
+    "currency_id": "BRL",
+    "unit_price": ticketOptions[1].price
+} : {}
+
 const getOrderData = (
     orderNumber,
     buyerEmail,
@@ -10,22 +28,8 @@ const getOrderData = (
     childQtd
 ) => JSON.stringify({
     items: [
-        {
-            id: "COMIC24-1lote-normal",
-            title: ticketOptions[0].name,
-            category_id: "tickets",
-            quantity: normalQtd,
-            currency_id: "BRL",
-            unit_price: ticketOptions[0].price
-        },
-        {
-            "id": "COMIC24-1lote-child",
-            "title": ticketOptions[1].name,
-            "category_id": "tickets",
-            "quantity": childQtd,
-            "currency_id": "BRL",
-            "unit_price": ticketOptions[1].price
-        }
+        getNormal(normalQtd),
+        getChild(childQtd),
     ],
     "payer": {
         "phone": {
