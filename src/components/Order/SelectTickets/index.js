@@ -4,7 +4,7 @@ import ticketOptions from "consts/ticketOptions";
 import { TicketsContext } from "context/tickets";
 
 export default function SelectTickets() {
-  const { selectedTickets, setSelectedTickets } = useContext(TicketsContext);
+  const { selectedTickets, setSelectedTickets, nextStep } = useContext(TicketsContext);
 
   function getTotalPrice() {
     var totalPrice = 0;
@@ -12,12 +12,6 @@ export default function SelectTickets() {
 
     return totalPrice;
   }
-
-  const onSubmit = () => {
-    const total = getTotal();
-    setFormData({ ...formData, total });
-    setStep(2);
-  };
 
   const renderTicketItems = ticketOptions.map((item, index) =>
     <div className="col-12 my-1 mb-3" key={"ticket_" + index}>
@@ -106,7 +100,7 @@ export default function SelectTickets() {
             {getTotalPrice() > 0 ? (
               <button
                 className="btn btn-primary btn-block"
-                onClick={() => onSubmit()}
+                onClick={() => nextStep()}
               >
                 Continuar
               </button>
