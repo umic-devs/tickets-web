@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaInstagram, FaFacebookSquare, FaYoutube } from 'react-icons/fa'
 
-import logo from '../assets/images/umic/icon_logo-white.png'
+import logo from 'assets/images/umic/icon_logo-white.png'
 
 export default function Footer({ className }) {
   return (
