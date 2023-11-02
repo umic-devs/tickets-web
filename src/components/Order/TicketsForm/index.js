@@ -77,8 +77,8 @@ export default function TicketsForm() {
                 orderNumber,
                 buyerData.email,
                 buyerData.telefone,
-                selectedTickets['normal'],
-                selectedTickets['child']
+                selectedTickets['normal'] || 0,
+                selectedTickets['child'] || 0
             );
 
             window.location.replace(res_mercadopago.data.init_point)
