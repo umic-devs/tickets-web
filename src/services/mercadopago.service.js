@@ -5,12 +5,12 @@ import ticketOptions from "consts/ticketOptions"
 function getItems(normalQtd, childQtd) {
     let items = []
     if (normalQtd > 0) items.push({
-        "id": "COMIC24-1lote-child",
-        "title": ticketOptions[1].name,
-        "category_id": "tickets",
-        "quantity": normalQtd,
-        "currency_id": "BRL",
-        "unit_price": ticketOptions[1].price
+        id: "COMIC24-1lote-normal",
+        title: ticketOptions[0].name,
+        category_id: "tickets",
+        quantity: normalQtd,
+        currency_id: "BRL",
+        unit_price: ticketOptions[0].price
     })
     if (childQtd > 0) items.push({
         "id": "COMIC24-1lote-child",
