@@ -10,6 +10,7 @@
     "bootstrap": "^4.5.2",
     "firebase": "^8.1.2",
     "google-spreadsheet": "^3.0.14",
+    "mercadopago": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-google-recaptcha": "^2.1.0",
@@ -36,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3"
   }
 }

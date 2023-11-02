@@ -1,20 +1,14 @@
 import React from 'react'
 import { FaInstagram, FaYoutube } from 'react-icons/fa'
 
-import logo from '../assets/images/umic/icon_logo-white.png'
+import logo from 'assets/images/umic/icon_logo-white.png'
 
-export default function Navbar({ activeTab }) {
-  /*
-  function isActive(tab) {
-    const active = tab === activeTab ? "active" : "";
-    return active;
-  }
-  */
+export default function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-sm">
       <div className="container">
-        <a href="/">
+        <a href="https://umic.com.br">
           <img src={logo} alt="umic logo" className="navbar-brand" />
         </a>
         <div className="justify-content-end d-none d-sm-block">
