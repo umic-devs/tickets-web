@@ -81,7 +81,7 @@ export default function TicketsForm() {
                 selectedTickets['child']
             );
 
-            window.go(res_mercadopago.data.sandbox_init_point);
+            window.location.replace(res_mercadopago.data.init_point)
 
         } catch (error) {
             console.log(error);
