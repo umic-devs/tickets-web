@@ -8,10 +8,6 @@ function getTotalPrice(selected) {
 }
 
 export function getDataToFirebase(formData, selectedTickets, buyerData, totalPrice) {
-    // inputs // TODO REMOVE
-    console.log(formData)
-    console.log(selectedTickets)
-
     // outputs
     let order = {
         status: "PENDENTE",
@@ -53,8 +49,6 @@ export function getDataToFirebase(formData, selectedTickets, buyerData, totalPri
         restructuredData[item][field] = formData[key];
     }
 
-    console.log(restructuredData)
-
     // Iterate through the original data
     for (const key in restructuredData) {
         const item = restructuredData[key]
@@ -70,31 +64,5 @@ export function getDataToFirebase(formData, selectedTickets, buyerData, totalPri
         })
     }
 
-
-
-
-    console.log(order, tickets) // TOTO REMOVE
     return { order, tickets }
 }
-
-/*
-
-
-
-     
-}
-
-const ticket = {
-    id: 'I15689'
-    order_id: '21231'
-    type: 'normal ou child'
-    value: 123456
-    lote: 1,
-    name:
-    surname: 
-    whats
-    church
-    state
-}
-
-*/
