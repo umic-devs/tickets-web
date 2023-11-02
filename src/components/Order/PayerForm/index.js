@@ -16,7 +16,6 @@ export default function PayerForm() {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data)
         setBuyerData(data)
         localStorage.setItem("buyerData", JSON.stringify(data));
         nextStep();

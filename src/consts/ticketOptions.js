@@ -15,4 +15,9 @@ const ticketOptions = [
     },
 ];
 
+export function getTicketDataById(id) {
+    const ticketData = ticketOptions.find(ticket => ticket.id === id);
+    return ticketData;
+}
+
 export default ticketOptions
