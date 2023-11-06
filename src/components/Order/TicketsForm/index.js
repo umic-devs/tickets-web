@@ -81,7 +81,7 @@ export default function TicketsForm() {
                 selectedTickets['child'] || 0
             );
 
-            window.location.replace(res_mercadopago.data.init_point)
+            window.open(res_mercadopago.data.init_point, '_blank', 'noreferrer')
 
         } catch (error) {
             console.log(error);
