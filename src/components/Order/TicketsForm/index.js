@@ -82,6 +82,9 @@ export default function TicketsForm() {
 
             window.open(res_mercadopago.data.init_point, '_blank', 'noreferrer')
 
+            localStorage.setItem("pedido", orderNumber);
+            localStorage.setItem("link", res_mercadopago.data.init_point);
+
             nextStep()
 
         } catch (error) {
