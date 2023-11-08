@@ -1,6 +1,7 @@
 import SelectTickets from "components/Order/SelectTickets"
 import PayerForm from "components/Order/PayerForm";
 import TicketsForm from "components/Order/TicketsForm";
+import Redirect from "components/Order/Redirect";
 
 const ticketSteps = {
     [1]: {
@@ -25,14 +26,8 @@ const ticketSteps = {
     [4]:
     {
         description: 'Faça o pagamento pelo Mercado Pago',
-        component: TicketsForm, // Redirect
+        component: Redirect,
         prevStep: 3,
-    },
-    [5]:
-    {
-        description: 'Pedido concluído!',
-        component: TicketsForm, // Checkout
-        nextStep: 1,
     },
 }
 

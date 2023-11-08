@@ -9,7 +9,6 @@ import { getTicketDataById } from "consts/ticketOptions";
 import { TicketsContext } from "context/tickets";
 import { getDataToFirebase } from "services/data.service";
 import { createPreference } from "services/mercadopago.service";
-import { Redirect } from "react-router-dom";
 
 export default function TicketsForm() {
     const { selectedTickets, previousStep, buyerData, totalPrice, nextStep, loading, setLoading } = useContext(TicketsContext);
@@ -26,7 +25,7 @@ export default function TicketsForm() {
             let ingressosRef = db.ref("COMIC24");
 
             await ingressosRef
-                .get(ingressosRef)
+                .get()
                 .then(async (snapshot) => {
                     let result = snapshot.val();
 
@@ -82,6 +81,8 @@ export default function TicketsForm() {
             );
 
             window.open(res_mercadopago.data.init_point, '_blank', 'noreferrer')
+
+            nextStep()
 
         } catch (error) {
             console.log(error);
@@ -200,37 +201,35 @@ export default function TicketsForm() {
     )));
 
     return (
-        <React.Fragment>
-            <div className="row justify-content-center">
-                <div className="col-12 col-md-9">
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="row mb-3">
-                            {renderTicketsForm()}
+        <div className="row justify-content-center">
+            <div className="col-12 col-md-9">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="row mb-3">
+                        {renderTicketsForm()}
+                    </div>
+                    <div className="row justify-content-between align-items-center">
+                        <div className="col-4 col-md-3">
+                            <button
+                                className="btn px-0 text-primary"
+                                onClick={() => previousStep()}
+                            >
+                                {"<-"} Voltar
+                            </button>
                         </div>
-                        <div className="row justify-content-between align-items-center">
-                            <div className="col-4 col-md-3">
-                                <button
-                                    className="btn px-0 text-primary"
-                                    onClick={() => previousStep()}
-                                >
-                                    {"<-"} Voltar
+                        <div className="col-8 col-md-4 text-right">
+                            {loading ? (
+                                <button className="btn btn-primary btn-block" disabled>
+                                    <span className="spinner-border spinner-border-sm" />
                                 </button>
-                            </div>
-                            <div className="col-8 col-md-4 text-right">
-                                {loading ? (
-                                    <button className="btn btn-primary btn-block" disabled>
-                                        <span className="spinner-border spinner-border-sm" />
-                                    </button>
-                                ) : (
-                                    <button type="submit" className="btn btn-primary btn-block">
-                                        Continuar
-                                    </button>
-                                )}
-                            </div>
+                            ) : (
+                                <button type="submit" className="btn btn-primary btn-block">
+                                    Continuar
+                                </button>
+                            )}
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
-        </React.Fragment>
+        </div>
     );
 }
