@@ -1,4 +1,4 @@
-const TICKET_FULL_PRICE = 550;
+const TICKET_FULL_PRICE = 600;
 
 const ticketOptions = [
     {
