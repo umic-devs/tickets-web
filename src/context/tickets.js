@@ -7,22 +7,14 @@ const INITIAL_STEP = 1;
 const initialState = {
     loading: false,
     currentStep: INITIAL_STEP,
-
-    tickets: [],
-    totalPrice: 0,
-    selectedTickets: [],
-    buyerData: JSON.parse(localStorage.getItem("buyerData")) ?? {},
+    buyerData: {},
 };
 
 const TicketsContext = createContext();
 
 function TicketsProvider({ children }) {
     const [loading, setLoading] = useState(initialState.loading);
-    const [totalPrice, setTotalPrice] = useState(initialState.totalPrice);
-    const [selectedTickets, setSelectedTickets] = useState(initialState.selectedTickets);
-
     const [buyerData, setBuyerData] = useState(initialState.buyerData);
-
     const [currentStep, setCurrentStep] = useState(initialState.currentStep);
 
     function nextStep() {
@@ -41,12 +33,6 @@ function TicketsProvider({ children }) {
             currentStep,
             nextStep,
             previousStep,
-
-            totalPrice,
-            setTotalPrice,
-
-            selectedTickets,
-            setSelectedTickets,
 
             buyerData,
             setBuyerData,

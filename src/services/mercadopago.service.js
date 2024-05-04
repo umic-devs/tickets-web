@@ -1,41 +1,19 @@
 import axios from "axios";
 
-import ticketOptions from "consts/ticketOptions"
-
-function getItems(normalQtd, childQtd) {
-    let items = []
-    if (normalQtd > 0) items.push({
-        id: "COMIC24-1lote-normal",
-        title: ticketOptions[0].name,
+const getOrderData = (orderNumber, email, number) => JSON.stringify({
+    items: [{
+        id: "conf-ticket",
+        title: 'Ingresso',
         category_id: "tickets",
-        quantity: normalQtd,
+        quantity: 1,
         currency_id: "BRL",
-        unit_price: ticketOptions[0].price
-    })
-    if (childQtd > 0) items.push({
-        "id": "COMIC24-1lote-child",
-        "title": ticketOptions[1].name,
-        "category_id": "tickets",
-        "quantity": childQtd,
-        "currency_id": "BRL",
-        "unit_price": ticketOptions[1].price
-    })
-    return items
-}
-
-const getOrderData = (
-    orderNumber,
-    buyerEmail,
-    buyerNumber,
-    normalQtd,
-    childQtd
-) => JSON.stringify({
-    items: getItems(normalQtd, childQtd),
+        unit_price: 180
+    }],
     "payer": {
         "phone": {
-            "number": buyerNumber
+            "number": number
         },
-        "email": buyerEmail
+        "email": email
     },
     "payment_methods": {
         "excluded_payment_methods": [],
@@ -47,17 +25,12 @@ const getOrderData = (
     },
     "back_urls": {},
     "external_reference": orderNumber,
-    "statement_descriptor": "COMIC 2024",
+    "statement_descriptor": "UMIC",
     "binary_mode": true
 });
 
-export async function createPreference(
-    orderNumber,
-    buyerEmail,
-    buyerNumber,
-    normalQtd,
-    childQtd
-) {
+export async function createPreference(orderNumber, email, number) {
+    console.log(getOrderData(orderNumber, email, number))
     return axios.request({
         method: 'post',
         maxBodyLength: Infinity,
@@ -66,10 +39,6 @@ export async function createPreference(
             'Authorization': `Bearer ${process.env.REACT_APP_MERCADO_PAGO_ACCESS}`,
             'Content-Type': 'application/json'
         },
-        data: getOrderData(orderNumber,
-            buyerEmail,
-            buyerNumber,
-            normalQtd,
-            childQtd)
+        data: getOrderData(orderNumber, email, number)
     });
 }
