@@ -53,7 +53,7 @@ export function getDataToFirebase(formData, selectedTickets, buyerData, totalPri
     for (const key in restructuredData) {
         const item = restructuredData[key]
         tickets.push({
-            lote: 1,
+            lote: 0,
             name: item.nome,
             surname: item.sobrenome,
             whats: item.telefone,

@@ -15,7 +15,7 @@ export default function OrderPage() {
       <Navbar />
       <section className="py-3">
         <div className="container">
-          <h2>Inscrição COMIC 24</h2>
+          <h2>Inscrição COMIC 2025</h2>
           <h6>Passo {currentStep} de {totalSteps} - {selectedStep.description}</h6>
         </div>
         <div className="container">

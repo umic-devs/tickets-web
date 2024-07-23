@@ -22,7 +22,7 @@ export default function TicketsForm() {
         let orderNumber = undefined;
 
         try {
-            let ingressosRef = db.ref("COMIC24");
+            let ingressosRef = db.ref("COMIC25");
 
             await ingressosRef
                 .get()
@@ -39,7 +39,7 @@ export default function TicketsForm() {
                     var batch = store.batch();
 
                     // ORDER
-                    let pedidoRef = store.collection("COMIC24").doc(newPedidoName);
+                    let pedidoRef = store.collection("COMIC25").doc(newPedidoName);
                     batch.set(pedidoRef, {
                         ...order,
                         id: newPedidoName,
